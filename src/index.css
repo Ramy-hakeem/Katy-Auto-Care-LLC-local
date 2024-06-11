@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* colors */
+:root {
+    --pumpkin: #F55F1D;
+    --charcoal: #1E1E1E;
+    --navy-blue: #024AA8;
+    --scarlet: #F80606;
+    --midnight-black: #1B1E20;
+}
+
+/* navbar */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: hidden;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: red;
+}
+
+.navbar-wrapper {
+    /* mange the container */
+    box-shadow: 0px 6px 6px 0px #00000040;
+    height: 91px;
+    background-color: white;
+    width: 100%;
+
+    /* mange the child */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar-wrapper .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-wrapper .logo img {
+    width: 93px;
+    height: 63px;
+}
+
+.navbar-wrapper .logo p {
+    font-family: Poppins;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 42px;
+    text-align: left;
+    text-transform: uppercase;
+    color: var(--charcoal);
+}
+
+.navbar-wrapper .logo span {
+    color: var(--pumpkin);
+}
+
+.navbar-wrapper .sections {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 11.46px;
+}
+
+.navbar-wrapper .sections li {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    color: var(--midnight-black);
+    text-transform: uppercase;
+    margin-right: 20px;
+}
+
+.navbar-wrapper .sections .selected {
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: var(--pumpkin);
+    color: var(--pumpkin);
+}
+
+.navbar-wrapper .sections li:hover {
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: var(--pumpkin);
+    color: var(--pumpkin);
+}
+
+.navbar-wrapper .auth {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar-wrapper .auth button {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: left;
+    color: var(--midnight-black);
+    border: 1.15px solid #024AA8;
+    height: 52.93px;
+    border-radius: 12px;
+    border-width: 1.15px;
+    padding: 11.46px;
+    text-align: center;
+}
+
+.navbar-wrapper .auth .login {
+    width: 106.6px;
+}
+
+.navbar-wrapper .auth .register {
+    width: 120.36px;
+    background-color: var(--navy-blue);
+    color: white;
+}
+
+
+/* Hero sectoin  */
+.hero-wrapper {
+    position: relative;
+}
+
+.hero-wrapper .hero {
+    height: 1026px;
+}
+
+.hero-wrapper aside {
+    background-color: rgba(27, 30, 32, 0.5);
+    height: 1026px;
+    width: 819px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.hero-wrapper aside div {
+    position: absolute;
+    width: 704px;
+    height: 529px;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin-bottom: 20px;
+}
+
+.hero-wrapper aside h1 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 57px;
+    margin-bottom: 50px;
+}
+
+.hero-wrapper aside p {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 51px;
+    margin-bottom: 50px;
+}
+
+.hero-wrapper aside .hero-btn {
+    color: white;
+    width: 373px;
+    height: 71px;
+    background-color: var(--pumpkin);
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+}

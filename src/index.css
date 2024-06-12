@@ -48,7 +48,7 @@ body {
     height: 63px;
 }
 
-.navbar-wrapper .logo p {
+.navbar-wrapper .logo h1 {
     font-family: Poppins;
     font-size: 28px;
     font-weight: 700;
@@ -56,6 +56,7 @@ body {
     text-align: left;
     text-transform: uppercase;
     color: var(--charcoal);
+    text-wrap: nowrap;
 }
 
 .navbar-wrapper .logo span {
@@ -67,7 +68,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 11.46px;
+    gap: 11px;
 }
 
 .navbar-wrapper .sections li {
@@ -76,7 +77,8 @@ body {
     line-height: 30px;
     color: var(--midnight-black);
     text-transform: uppercase;
-    margin-right: 20px;
+    margin: 0 10px;
+    text-wrap: nowrap;
 }
 
 .navbar-wrapper .sections .selected {
@@ -128,14 +130,15 @@ body {
     position: relative;
 }
 
-.hero-wrapper .hero {
-    height: 1026px;
+.hero-wrapper .hero-img {
+    width: 100%;
+    height: auto;
 }
 
 .hero-wrapper aside {
     background-color: rgba(27, 30, 32, 0.5);
-    height: 1026px;
-    width: 819px;
+    height: 100%;
+    width: 47%;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -143,9 +146,9 @@ body {
 
 .hero-wrapper aside div {
     position: absolute;
-    width: 704px;
+    width: 80%;
     height: 529px;
-    right: 0;
+    right: 10px;
     top: 50%;
     transform: translate(0, -50%);
     margin-bottom: 20px;

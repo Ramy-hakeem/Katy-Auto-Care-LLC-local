@@ -5,7 +5,7 @@ import Button from "./ui/Button"
 function Herosection() {
     return (
         <section className="hero-wrapper">
-            <Image src={hero} alt="hero image" className="hero" />
+            <Image src={hero} alt="hero image" className="hero-img" />
             <aside >
                 <div>
                     <h1>Affordable Car Services with Quality Assurance</h1>

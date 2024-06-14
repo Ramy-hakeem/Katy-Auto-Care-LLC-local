@@ -19,6 +19,7 @@ function ValueSection() {
             <div className="value-cards-wrapper">
                 <ValueCard
                     imgSrc={car}
+                    className={"value__card-icon"}
                     color={"blue"}
                     title={"More Than Just a Repair Shop"}
                     desc={"We support local causes and foster community unity through active engagement in initiatives."}
@@ -30,6 +31,7 @@ function ValueSection() {
                 />
                 <ValueCard
                     imgSrc={group}
+                    className={"value__card-icon"}
                     color={"blue"}
                     title={"Happy Customers Guaranteed"}
                     desc={"Positive feedback and smiles show our dedication to exceptional car rentals."}

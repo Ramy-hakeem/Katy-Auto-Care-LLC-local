@@ -1,11 +1,29 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+
+
+import withMT from "@material-tailwind/react/utils/withMT";
+
+export default withMT({
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "path-to-your-node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}",
+    "path-to-your-node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        pumpkin: '#F55F1D',
+        charcoal: '#1E1E1E',
+        navyBlue: '#024AA8',
+        scarlet: '#F80606',
+        midnightBlack: '#1B1E20',
+        midnightBlue: '#2F327D',
+        flame: '#F80606',
+
+      },
+      boxShadow: {
+        card: " 0px 10px 60px 0px #262D7614;"
+      }
+    },
   },
   plugins: [],
-}
+});

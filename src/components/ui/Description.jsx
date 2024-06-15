@@ -1,10 +1,9 @@
-import "./ui.css";
 import PropTypes from 'prop-types';
 
 
-export default function Description({ text, fontSize, className }) {
+export default function Description({ text, className }) {
     return (
-        <p className={className} style={{ fontSize: `${fontSize}px` }}>
+        <p className={`text-base font-normal leading-12 text-gray-700 ${className}`}>
             {text}
         </p>
     );

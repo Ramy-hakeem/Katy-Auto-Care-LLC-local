@@ -4,6 +4,7 @@ import service1 from "../../assets/service1.png"
 import service2 from "../../assets/service2.png"
 import service3 from "../../assets/service3.png"
 import { Button } from '@material-tailwind/react'
+import { Link } from 'react-router-dom'
 
 function ServicesSection() {
     const services = [
@@ -21,7 +22,7 @@ function ServicesSection() {
         },
         {
             "img": service2,
-            "title": "Routine Maintenance Services",
+            "title": "Routine Maintenance Services1",
             "desc": "Emphasize the importance of routine maintenance for vehicle longevity. Mention services like",
             "list": [
                 "Oil changes.",
@@ -32,7 +33,7 @@ function ServicesSection() {
         },
         {
             "img": service3,
-            "title": "Routine Maintenance Services",
+            "title": "Routine Maintenance Services2",
             "desc": "Emphasize the importance of routine maintenance for vehicle longevity. Mention services like",
             "list": [
                 "Wil changes.",
@@ -47,11 +48,13 @@ function ServicesSection() {
             className={`flex flex-col justify-around items-center  py-20 gap-14`}
         >
             <SectionTitle maintext={`Our SERVICES`} />
-            {services.map((service, index) => <ServiceCard key={service.title} img={service.img} title={service.title} desc={service.desc} list={service.list} index={index} />)}
-            <Button
-                className="text-sm w-48 font-medium  text-white  bg-pumpkin !border border-s-[0.1px] border-pumpkin rounded-lg py-2  " >
-                explore more
-            </Button>
+            {services.map((service, index) => <ServiceCard key={service.title + service.title} img={service.img} title={service.title} desc={service.desc} list={service.list} index={index} />)}
+            <Link to={"services"}>
+                <Button
+                    className="text-sm w-48 font-medium  text-white  bg-pumpkin !border border-s-[0.1px] border-pumpkin rounded-lg py-2  " >
+                    explore more
+                </Button>
+            </Link>
         </div>
     )
 }

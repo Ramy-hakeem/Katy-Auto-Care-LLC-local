@@ -1,6 +1,7 @@
 import Image from "../ui/Image"
 import Description from "../ui/Description"
 import { Button } from "@material-tailwind/react"
+import { Link } from "react-router-dom"
 function ServiceCard({ img, title, desc, list, index, isThereDesc }) {
     return (
         <div
@@ -30,10 +31,12 @@ function ServiceCard({ img, title, desc, list, index, isThereDesc }) {
                         className={"text-lg"}
                     />
                 ) : (
-                    <Button
-                        className="text-sm w-48 font-medium  text-white hover:text-white hover:bg-pumpkin !border border-s-[0.1px] border-pumpkin rounded-lg py-2  " >
-                        explore more
-                    </Button>
+                    <Link to={"services/id"}>
+                        <Button
+                            className="text-sm w-48 font-medium  text-white hover:text-white hover:bg-pumpkin !border border-s-[0.1px] border-pumpkin rounded-lg py-2 my-3  " >
+                            explore more
+                        </Button>
+                    </Link>
                 )
                 }
 

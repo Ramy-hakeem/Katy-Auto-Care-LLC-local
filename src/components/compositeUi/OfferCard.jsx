@@ -2,6 +2,7 @@ import { Button } from "@material-tailwind/react"
 import offer1 from "../../assets/offer1.png"
 import Image from "../ui/Image"
 import StarIcon from "../../assets/StarIcon"
+import { Link } from "react-router-dom"
 
 function OfferCard() {
     return (
@@ -18,9 +19,11 @@ function OfferCard() {
                         Body Work & Paint + Tire Services & Auto Glass Replace
                     </p>
                 </div>
-                <Button className="w-36 self-end border mr-4 border-s-4 py-[6px] border-pumpkin">
-                    More Details
-                </Button>
+                <Link to={"offers/id"}>
+                    <Button className="w-36 self-end border mr-4 border-s-4 py-[6px] border-pumpkin">
+                        More Details
+                    </Button>
+                </Link>
                 <div className=" flex items-start absolute left-2/5 top-1/2   transform -translate-y-1/2 ">
                     <StarIcon />
                 </div>

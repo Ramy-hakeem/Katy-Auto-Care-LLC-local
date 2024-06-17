@@ -2,6 +2,7 @@ import Image from '../ui/Image'
 import mobileApp from "../../assets/mobilApp.png"
 import appStore from "../../assets/appStore.png"
 import googlePlay from "../../assets/googlePlay.png"
+import { Link } from 'react-router-dom'
 function MobileAppSection() {
     return (
         <div>
@@ -15,8 +16,12 @@ function MobileAppSection() {
                         easy scheduling right from your phone.
                     </p>
                     <div className='flex gap-10 w-4/6'>
-                        <Image src={googlePlay} className='w-auto h-12' />
-                        <Image src={appStore} className='w-auto h-12' />
+                        <a target="_blank" href={"https://play.google.com/store/apps/details?id=com.katyautocar.katyautocar"}>
+                            <Image src={googlePlay} className='w-auto h-12' />
+                        </a>
+                        <Link>
+                            <Image src={appStore} className='w-auto h-12' />
+                        </Link>
                     </div>
                 </div>
                 <Image src={mobileApp} className='w-auto h-full' />

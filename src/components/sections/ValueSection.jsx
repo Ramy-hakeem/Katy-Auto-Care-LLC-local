@@ -8,24 +8,27 @@ import group from "../../assets/group.png";
 
 function ValueSection() {
     return (
-        <section className="flex flex-col items-center justify-center gap-28 mx-auto w-11/12 
-        my-[150px] sl:my-[200px] t:my-[84px]
-        h-[799px] sl:h-[631px] t:h-[478px]
+        <section className="flex flex-col items-center justify-center gap-28 mx-auto w-10/12 t:w-11/12  h-screen t:h-[50vh]
+      
+        mb-[93px]  
+      
+        
         ">
-            <div className="flex flex-col items-center justify-center w-[837px] gap-3 ">
-                <SectionTitle maintext="Your One-Stop" spantext="Auto Care Solution" />
+            <div className="flex flex-col items-center justify-center w-[837px] gap-3  ">
+                <SectionTitle maintext="Your One-Stop " spantext="&nbsp;Auto Care Solution" />
                 <Description
                     text="Katy Auto Care LLC provides exceptional service and quality care to keep your vehicle running smoothly and safely."
 
                     className={`text-center 
+                        text-black
                         mb-3
-                        w-[837px]  sl:w-[679px] t:w-[532px]
+                        w-9/12  sl:w-[679px] t:w-[552px]
                         size-[26px]  sl:size-[20px] t:size-[16px]
                         leading-[47px] sl:leading-[36px] t:leading-[29px]
                         `}
                 />
             </div>
-            <div className="flex justify-between items-center w-full">
+            <div className="flex justify-between items-center w-full ">
                 <ValueCard
                     imgSrc={car}
                     className="w-[50px] sl:w-[45px] t:w-[34px]"

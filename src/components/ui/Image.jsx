@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-function Image({ src, alt = '', className = '' }) {
+function Image({ src, alt = '', className = '', func = "" }) {
     return (
-        <img className={className} src={src} alt={alt} />
+        <img onClick={func} className={className} src={src} alt={alt} />
     );
 }
 
@@ -10,6 +10,7 @@ Image.propTypes = {
     src: PropTypes.string.isRequired,
     alt: PropTypes.string,
     className: PropTypes.string,
+    func: PropTypes.string,
 };
 
 export default Image;

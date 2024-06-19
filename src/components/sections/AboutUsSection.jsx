@@ -1,6 +1,8 @@
-import SectionTitle from '../ui/SectionTitle'
 import ServiceCard from '../compositeUi/ServiceCard'
 import service1 from "../../assets/service1.png"
+import Image from '../ui/Image'
+import arrow from '../../assets/left-arrow.png';
+
 
 function AboutUsSection() {
     const aboutData = [
@@ -10,7 +12,6 @@ function AboutUsSection() {
             "desc": "At Katy Auto Care LLC, we are dedicated to providing exceptional automotive services.",
             "list": [
                 "Our skilled technicians bring years of expertise.",
-                "We offer a full range of services, from maintenance to repairs.",
                 "We ensure transparent pricing and personalized care.",
                 "Our facility is equipped with the latest technology.",
                 "We have a strong reputation for integrity and quality service."
@@ -19,8 +20,20 @@ function AboutUsSection() {
         }
     ]
     return (
-        <div className='my-20 py-10 bg-midnightBlack flex flex-col justify-around items-center  '>
-            <SectionTitle maintext='About us' />
+        <div className=' py-10 bg-midnightBlack flex flex-col justify-around items-center  '>
+            <div className={`flex items-center justify-center gap-2 mb-4 `}>
+                <Image src={arrow} alt="pointer"
+
+                    className="
+            w-[30] sl:w-[25px] t:w-[20px]
+            -[34px] sl:h-[28px] t:h-[22px]
+             "/>
+                <h1 className=" font-bold leading-17 text-white flex justify-center items-center
+            text-[38px] sl:text-[30px] t:text-[24px] uppercase  
+            ">
+                    about us
+                </h1>
+            </div>
             {aboutData.map((service, index) => <ServiceCard key={service.title} img={service.img} title={service.title} desc={service.desc} list={service.list} isThereDesc={service.isThereDesc} index={index} />)}
         </div>
     )

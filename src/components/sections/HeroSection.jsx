@@ -8,25 +8,22 @@ function HeroSection() {
         <section
             style={{ backgroundImage: `url(${heroImage})` }}
             className="relative w-full bg-cover bg-center 
-         h-[1020px] sl-h-[838px] t:h-[736px]
+         h-screen sl-h-[838px] t:h-[736px] 
         "
         >
             <aside className="bg-black bg-opacity-50 h-full  
             w-[819px] sl:w-[681px]  t:w-[562px] 
             ">
 
-                <div className="box-content  
-                pt-[250px] sl:pt-[207.95px]  t:pt-[ 182px] 
+                <div className="box-content  pt-80 t:pt-48
+                flex justify-around items-start flex-col 
                 pr-[52px] sl:pr-[43.25px]  t:pr-[38px] 
-                pb-[96px] sl:pb-[79.85px]  t:pb-[70px] 
-                pl-[115px] sl:pl-[95.66px]  t:pl-[50px] 
-                
-                 
+                pl-[115px] sl:pl-[95.66px]  t:pl-[50px]  
                 ">
 
                     <h1 className="  text-white uppercase font-bold mb-12
                     w-[640px] sl:w-[505px] t:w-[438px]
-                    text-[38px] sl:text-[30] t:text-[26px] 
+                    text-[38px] sl:text-3xl t:text-[26px] 
                     leading-[57px] sl:leading-[45px]  t:leading-[39px]
                     ">
                         Affordable Car Services with Quality Assurance
@@ -43,11 +40,11 @@ function HeroSection() {
 
 
                     <Link to={"schedule-an-appointment"}>
-                        <Button className=" text-white  bg-pumpkin rounded-lg p-3  font-medium  normal-case
-                        text-[24px] sl:text-[20px] 
+                        <Button className=" text-white  bg-pumpkin rounded-lg p-3  font-medium  normal-case flex justify-center items-center
+                        text-[24px] sl:text-2xl t:text-xl
                         leading-[36px] sl:leading-[30px]
-                        w-[373px]
-                         h-[71px]
+                        w-[373px] t:w-[300px]
+                         h-[71px] t:h-[50px]
                         ">
                             Schedule an Appointment
                         </Button>

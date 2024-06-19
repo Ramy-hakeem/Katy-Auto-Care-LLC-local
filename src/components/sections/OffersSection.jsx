@@ -6,15 +6,31 @@ import OfferCard from '../compositeUi/OfferCard'
 
 function OffersSection() {
     return (
-        <div className='h-screen p-5 items-center flex flex-col gap-3 justify-around  my-20   '>
-            <SectionTitle maintext={"Our Latest Offers"} />
+
+        <div className='px-5 items-center flex flex-col justify-between 
+        h-[776px] sl:h-[612px] 
+        '>
+            <SectionTitle
+                maintext={"Our Latest Offers"}
+                className={"mb-[30px]"}
+
+            />
             <Carousel cards={<OfferCard />} />
-            <Link to={"offers"}>
-                <Button className='bg-pumpkin w-60'>
-                    View More Offers
-                </Button>
-            </Link>
+            <div className='flex justify-center items-center'>
+                <Link to={"offers"}>
+                    <Button className='bg-pumpkin  normal-case flex justify-center items-center
+                    w-[318px] sl:w-[250px] t:w-[221px]
+                    h-[71px] sl:h-[56px] t:h-[49px]
+                    text-[24px] sl:text-[20px] t:text-[18px]
+                    mt-[30px] sl:mt-[45px] t:mt-[50px]
+                    '>
+                        View More Offers
+                    </Button>
+                </Link>
+            </div>
         </div>
+
+
     )
 }
 

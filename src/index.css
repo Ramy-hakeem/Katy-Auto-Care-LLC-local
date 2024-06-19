@@ -57,8 +57,17 @@ ol {
     /* Firefox */
 }
 
+
 .list-image {
-    list-style-image: url("./assets/list.svg")
+    list-style-image: url("./assets/list.svg");
+    list-style-position: inside;
+}
+
+
+@media (max-width: 1025px) {
+    .list-image {
+        list-style-image: url("./assets/listsmall.svg");
+    }
 }
 
 .gradient {

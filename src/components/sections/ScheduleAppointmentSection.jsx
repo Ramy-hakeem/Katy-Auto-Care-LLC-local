@@ -2,23 +2,44 @@ import { Button } from "@material-tailwind/react"
 
 function ScheduleAppointmentSection() {
     return (
-        <section className="h-60 w-full bg-midnightBlack  flex flex-col justify-around items-center my-20" >
-            <h1 className="font-bold text-3xl text-pumpkin">
+        <section className="w-full bg-midnightBlack  flex flex-col justify-center gap-[60px] items-center 
+        my-[200px] t:my-24 
+        h-[693px] sl:h-[577px] t:h-[413px]
+        " >
+            <h1 className="font-bold text-pumpkin uppercase
+            text-[44px] sl:text-[36px] t:text-[26px]
+            leading-[66px] sl:leading-[54px] t:leading-[39px]
+            ">
                 Unmatched Auto Care Awaits!!
             </h1>
-            <p className="font-bold text-lg w-1/2 text-white text-center">
+            <p className="font-bold text-white text-center
+            w-[1250px] sl:w-[1041px] t:w-[764px]
+            text-[36px] sl:text-[30px] t:text-[22px]
+            leading-[54px] sl:leading-[45px] t:leading-[33px]
+            ">
                 Experience top-notch service and expert care for your vehicle.
                 Trust Katy Auto Care LLC to keep you on the road with confidence.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-[50px] justify-center items-center">
                 <Button
-                    className="text-sm font-medium w-64 text-white hover:text-white hover:bg-pumpkin !border border-s-[0.1px] border-pumpkin rounded-lg py-2  " >
-                    Register
+                    className="font-medium text-white hover:text-white hover:bg-pumpkin !border border-s-[0.1px] border-pumpkin rounded-lg  normal-case
+                    w-[373px] sl:w-[311x] t:w-[221px]
+                    h-[71px] sl:h-[59px] t:h-[42px]
+                    text-[24px] sl:text-[20px] t:text-[14px]
+                    leading-[36px]  sl:leading-[30px] t:leading-[21px]
+                    " >
+                    Sign Up
                 </Button>
                 <Button
-                    className="text-sm font-medium  text-white hover:text-white hover:bg-pumpkin !border border-s-[0.1px] border-pumpkin rounded-lg py-2  " >
+                    className="font-medium text-white hover:text-white hover:bg-pumpkin !border border-s-[0.1px] border-pumpkin rounded-lg  normal-case
+                      w-[373px] sl:w-[311x] t:w-[221px]
+                    h-[71px] sl:h-[59px] t:h-[42px]
+                    text-[24px] sl:text-[20px] t:text-[14px]
+                    leading-[36px]  sl:leading-[30px] t:leading-[21px]
+                    " >
                     Schedule an Appointment
                 </Button>
+
             </div>
         </section>
 

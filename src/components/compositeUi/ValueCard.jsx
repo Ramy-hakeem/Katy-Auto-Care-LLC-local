@@ -16,7 +16,7 @@ export function ValueCard({ imgSrc, title, desc, color, className }) {
          ">
 
 
-            <div className="  rounded-2xl w-full h-full flex flex-col justify-center items-center gap-3 ">
+            <div className="rounded-2xl w-full h-full flex flex-col justify-center items-center gap-3 ">
                 <h1 className=" font-medium  text-center text-midnightBlue uppercase
                  w-[343px]  sl:w-[278px] t:w-[217px]
                 text-[30px] sl:text-[24px] t:text-[18px]

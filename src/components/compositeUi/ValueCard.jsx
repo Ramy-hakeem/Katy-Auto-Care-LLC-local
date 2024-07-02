@@ -1,6 +1,6 @@
+import propTypes from "prop-types";
 import Image from "../ui/Image";
 import Description from "../ui/Description";
-import propTypes from "prop-types";
 
 export function ValueCard({ imgSrc, title, desc, color, className }) {
     const colorClasses = {
@@ -9,35 +9,41 @@ export function ValueCard({ imgSrc, title, desc, color, className }) {
     };
 
     return (
-        <section className="relative shadow-xl
-         w-[450px] sl:w-[365px] t:w-[285px]
-        h-[470px] sl:h-[381px] t:h-[280px]
-         
-         ">
+        <div className="">
+            <section className="relative shadow-xl  
+                w-[285px] sm:w-[300px] md:w-[300px] lg:w-[280px] xl:w-[350px]
+                h-[350px] sm:h-[400px] md:h-[400px] lg:h-[350px]  xl:h-[400px]
+                mt-8
+            ">
+                <div className="rounded-2xl w-full h-full flex flex-col justify-start items-center 
+                    pt-12 md:pt-16
+                    gap-10
+                    ">
+                    <h1 className="font-medium text-center text-midnightBlue uppercase
+                        w-11/12
+                        text-lg sm:text-xl xl:text-xl
+                    ">
+                        {title}
+                    </h1>
+                    <Description
+                        text={desc}
+                        className="text-center font-normal
+                        w-11/12
+                        text-sm sm:text-xl
+                    "
+                    />
+                </div>
 
-
-            <div className="rounded-2xl w-full h-full flex flex-col justify-center items-center gap-3 ">
-                <h1 className=" font-medium  text-center text-midnightBlue uppercase
-                 w-[343px]  sl:w-[278px] t:w-[217px]
-                text-[30px] sl:text-[24px] t:text-[18px]
-                leading-[45px] sl:leading-[36px] t:leading-[27px]
-                ">
-                    {title}
-                </h1>
-                <Description text={desc} className=" text-center font-normal
-                 w-[341px] sl:w-[276px] t:w-[217px]
-                text-[24px] sl:text-[20px] t:text-[16px]
-                leading-[43px] sl:leading-[36px] t:leading-[29px]
-                    " />
-            </div>
-
-            <div className={`rounded-full flex justify-center items-center absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${colorClasses[color]}
-            w-[100px]  sl:w-[80px] t:w-[60px]
-            h-[100px] sl:h-[80px] t:h-[60px]
-            `}>
-                <Image src={imgSrc} className={`h-auto ${className}`} />
-            </div>
-        </section>
+                <div className={`rounded-full flex justify-center items-center absolute top-0 left-1/2 transform 
+                    -translate-x-1/2 -translate-y-1/2 ${colorClasses[color]} 
+                    size-16 md:size-20 lg:size-16 xl:size-20
+                   
+                    `}
+                >
+                    <Image src={imgSrc} className={`h-auto    ${className}`} />
+                </div>
+            </section>
+        </div>
     );
 }
 
@@ -45,6 +51,8 @@ ValueCard.propTypes = {
     imgSrc: propTypes.string.isRequired,
     title: propTypes.string.isRequired,
     desc: propTypes.string.isRequired,
-    color: propTypes.string.isRequired,
+    color: propTypes.oneOf(['pumpkin', 'navyBlue']).isRequired,
     className: propTypes.string,
 };
+
+

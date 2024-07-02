@@ -3,7 +3,7 @@ import Image from "../ui/Image";
 
 const ReviewCard = () => {
     return (
-        <div className="max-w-sm mx-auto bg-white rounded-lg shadow-md p-6">
+        <div className="max-w-sm mx-auto bg-white rounded-lg shadow-2xl p-6">
             <p className="text-gray-700 mb-4">
                 Thank you for your service. I am very pleased with the result. I have seen exponential growth in my business and it's all thanks to your amazing service.
             </p>

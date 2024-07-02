@@ -2,8 +2,14 @@ import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { Button } from "@material-tailwind/react";
 import Image from "../ui/Image";
-import menu from "../../assets/menu.png"
+import menu from "../../assets/menu.png";
+import backArrow from "../../assets/backArrow.png";
+import phone from "../../assets/phone.png";
+import loc from "../../assets/location.png";
+import { useState } from "react";
+
 function Navbar() {
+    const [showMenu, setShowMenu] = useState(false);
     const navLinks = [
         { route: "/", title: "Home" },
         { route: "/offers", title: "Offers" },
@@ -14,72 +20,130 @@ function Navbar() {
 
     const location = useLocation();
 
-
     return (
-        <nav className="fixed z-10 w-full ">
-            <section className=" bg-midnightBlack flex justify-center items-center text-white font-normal 
-            text-[22px] sl:text-[16px] t:text-[16px] 
-             h-[3vh]
-             ">
-                <span>Katy Auto Care LLC&nbsp;-&nbsp; </span>
-                <a target="_blank" href="https://www.google.com/maps/place/Katy+Auto+Care+LLC/@29.864924,-95.703583,15z/data=!4m6!3m5!1s0x8640d7996194365d:0x57ade83228758c7!8m2!3d29.8649242!4d-95.7035831!16s%2Fg%2F11rs9ls6sg?hl=en&entry=ttu"> 19150 W little York Rd Katy TX 77449</a>
-                &nbsp;-&nbsp;
-                <span
-                    className="cursor-pointer"
-                    onClick={() => navigator.clipboard.writeText("832-543-3334")}
+        <nav className="fixed top-0 z-10 w-full">
+            <section className="bg-midnightBlack flex w-full items-center h-auto flex-wrap text-white font-normal justify-center sm:justify-around gap-2 px-1 text-[7px] sm:text-xs md:text-sm lg:text-lg xl:text-xl">
+                <span>Katy Auto Care LLC &nbsp;</span>
+
+                <a
+                    target="_blank"
+                    className="flex justify-center items-center"
+                    href="https://www.google.com/maps/place/Katy+Auto+Care+LLC/@29.864924,-95.703583,15z/data=!4m6!3m5!1s0x8640d7996194365d:0x57ade83228758c7!8m2!3d29.8649242!4d-95.7035831!16s%2Fg%2F11rs9ls6sg?hl=en&entry=ttu"
                 >
-                    832-543-3334
-                </span>
-                &nbsp;/&nbsp;
-                <span
-                    className="cursor-pointer"
-                    onClick={() => navigator.clipboard.writeText("832-543-3334")}
-                >281-815-3037
-                </span>
+                    <span className="hidden md:flex justify-center items-center">
+                        <img src={loc} alt="location" className="w-5 h-auto md:w-4" />
+                        &nbsp;
+                    </span>
+                    19150 W little York Rd Katy TX 77449
+                </a>
+                <div className="flex justify-center items-center">
+                    <span className="hidden md:flex justify-center items-center">
+                        <img src={phone} alt="phone icon" className="w-6 h-auto md:w-5" />
+                        &nbsp;
+                    </span>
+
+                    <span className="cursor-pointer" onClick={() => navigator.clipboard.writeText("832-543-3334")}>
+                        832-543-3334
+                    </span>
+                    &nbsp; &nbsp;
+                    <span className="cursor-pointer" onClick={() => navigator.clipboard.writeText("832-543-3334")}>
+                        281-815-3037
+                    </span>
+                </div>
             </section>
             <section
-                className="w-full bg-white shadow-md flex justify-around t:justify-between items-center
-             h-[91px] sl:h-[76px] t:h-[70px] t:px-9
-            ">
-                <Link to={"/"}>
+                className="w-full  bg-white shadow-nav z-20 flex  items-center
+                justify-around md:justify-between  
+                py-1 sm:py-4 
+                md:px-7 sm:px-5 ">
+                <Link to="/">
                     <div className="flex items-center">
-                        <Image src={logo} alt="logo"
-                            className="w-[93px] sl:w-[75px] t:w-[72px]
-                             h-[63px] sl:h-[50px] t:h-[49px]" />
-                        <h1 className="font-poppins font-bold leading-[42px] uppercase text-charcoal whitespace-nowrap
-                        text-[28px] sl:text-[22px] t:text-[24px]
-                        ">
-                            katy <span className="text-pumpkin">auto care</span>
+                        <Image
+                            src={logo}
+                            alt="logo"
+                            className=" h-auto w-10 sm:w-16 md:w-20"
+                        />
+                        <h1 className="font-poppins font-bold uppercase text-charcoal whitespace-nowrap 
+                        text-xs sm:text-lg md:text-2xl xl:text-xl">
+                            katy <span className="text-pumpkin">auto care LLC</span>
                         </h1>
                     </div>
                 </Link>
-                <ul className="flex items-center gap-3 t:hidden">
+                <ul className="hidden xl:flex items-center gap-3">
                     {navLinks.map(link => (
                         <li
                             key={link.route}
-                            className={`text-[20px] sl:text-[16px]  font-medium leading-[30px] uppercase mx-2 whitespace-nowrap ${location.pathname === link.route ? "border-b-2 border-pumpkin text-pumpkin" : "text-midnightBlack"} hover:border-b-2 hover:border-pumpkin hover:text-pumpkin`}
+                            className={`text-[20px] lg:text-[16px] font-medium leading-[30px] uppercase mx-2 whitespace-nowrap ${location.pathname === link.route ? "border-b-2 border-pumpkin text-pumpkin" : "text-midnightBlack"} hover:border-b-2 hover:border-pumpkin hover:text-pumpkin`}
                         >
                             <Link to={link.route}>{link.title}</Link>
                         </li>
                     ))}
                 </ul>
-                <div className="flex gap-7 t:hidden">
-                    <Link to={"login"}>
-                        <Button className="text-[20px] sl:text-[16px] w-[106px] sl:w-[88px]  font-medium l bg-white text-midnightBlack hover:text-white hover:bg-navyBlue border border-navyBlue rounded-lg py-2.5 px-3.5 normal-case" >
+                <div className="hidden xl:flex gap-7">
+                    <Link to="login">
+                        <Button className="text-[20px] lg:text-[16px] w-[106px] lg:w-[88px] font-medium bg-white text-midnightBlack hover:text-white hover:bg-navyBlue border border-navyBlue rounded-lg py-2.5 px-3.5 normal-case">
                             Login
                         </Button>
                     </Link>
-                    <Link to={"register"}>
-                        <Button className="text-[20px] sl:text-[16px] font-medium  text-whit text-white bg-navyBlue border border-white   rounded-lg py-2.5 px-3.5 normal-case  " >
+                    <Link to="register">
+                        <Button className="text-[20px] lg:text-[16px] font-medium text-white bg-navyBlue border border-white rounded-lg py-2.5 px-3.5 normal-case">
                             Register
                         </Button>
                     </Link>
                 </div>
 
+                <img
+                    src={menu}
+                    alt="menu"
+                    className="h-auto w-5 sm:w-8 xl:hidden"
+                    onClick={() => setShowMenu(prev => !prev)}
+                />
+            </section>
 
-                <Image src={menu} alt="menu" className="w-[35px] h-[35px] hidden t:flex" />
-
-            </section >
+            <section className={`bg-white mt-[2.5px] px-5 py-10 ${showMenu ? "block" : "hidden"} xl:hidden`}>
+                <img
+                    src={backArrow}
+                    alt="back arrow"
+                    onClick={() => setShowMenu(prev => !prev)}
+                    className="cursor-pointer h-auto w-4 sm:w-7 md:w-8"
+                />
+                <ul className="flex flex-col items-center gap-6">
+                    {navLinks.map(link => (
+                        <li
+                            key={link.route}
+                            className={` font-medium  uppercase mx-2 whitespace-nowrap ${location.pathname === link.route ? "border-pumpkin text-pumpkin" : "text-midnightBlack"} hover:border-pumpkin hover:text-pumpkin
+                            text-sm sm:text-lg md:text-xl
+                            `}
+                        >
+                            <Link onClick={() => setShowMenu(prev => !prev)} to={link.route}>
+                                {link.title}
+                            </Link>
+                        </li>
+                    ))}
+                    <div className="flex gap-2">
+                        <Link to="login">
+                            <Button
+                                onClick={() => setShowMenu(prev => !prev)}
+                                className="w-[135px]  font-medium bg-white text-midnightBlack hover:text-white hover:bg-navyBlue border border-navyBlue rounded-lg  p-3.5 normal-case
+                                text:sm sm:text-lg md:text-xl
+                                "
+                            >
+                                Login
+                            </Button>
+                        </Link>
+                        <Link to="register">
+                            <Button
+                                onClick={() => setShowMenu(prev => !prev)}
+                                className=" w-[135px] font-medium text-white bg-navyBlue border border-white rounded-lg p-3.5  normal-case
+                                text:sm sm:text-lg md:text-xl
+                                "
+                            >
+                                Register
+                            </Button>
+                        </Link>
+                    </div>
+                </ul>
+            </section>
         </nav>
     );
 }

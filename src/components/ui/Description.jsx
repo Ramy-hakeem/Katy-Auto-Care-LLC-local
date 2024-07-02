@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function Description({ text, className }) {
     return (
-        <p className={`font-lg leading-12 text-lg  opacity-70 ${className}`}>
+        <p className={`font-lg  opacity-70 ${className}`}>
             {text}
         </p>
     );

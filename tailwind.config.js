@@ -21,13 +21,19 @@ export default withMT({
 
       },
       boxShadow: {
-        card: " 0px 10px 60px 0px #262D7614;"
+        card: " 0px 10px 60px 0px #262D7614",
+        nav: " 0px 3px 3px 0px #CDCDCD"
+
+
+
+
       },
       screens: {
-        // small laptops
 
         'sl': { 'max': '1727px' },
         "t": { "max": "1025px" },
+        "ph": { "max": "431px" },
+        "sph": { "max": "321px" }
 
       },
     },

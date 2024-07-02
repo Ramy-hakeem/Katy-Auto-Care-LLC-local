@@ -20,18 +20,15 @@ function AboutUsSection() {
         }
     ]
     return (
-        <div className=' py-10 bg-midnightBlack flex flex-col justify-around items-center  '>
-            <div className={`flex items-center justify-center gap-2 mb-4 `}>
+        <div className=' py-10 bg-midnightBlack flex flex-col justify-around items-center my-20  w-full lg:w-screen '>
+            <div className={`flex items-center justify-center gap-2  `}>
                 <Image src={arrow} alt="pointer"
 
-                    className="
-            w-[30] sl:w-[25px] t:w-[20px]
-            -[34px] sl:h-[28px] t:h-[22px]
-             "/>
-                <h1 className=" font-bold leading-17 text-white flex justify-center items-center
-            text-[38px] sl:text-[30px] t:text-[24px] uppercase  
-            ">
-                    about us
+                    className={`h-auto w-3 sm:w-5`}
+                />
+                <h1 className={`font-bold  text-white flex justify-center items-center
+                text-sm sm:text-2xl lg:text-3xl  uppercase `}>
+                    About Us
                 </h1>
             </div>
             {aboutData.map((service, index) => <ServiceCard key={service.title} img={service.img} title={service.title} desc={service.desc} list={service.list} isThereDesc={service.isThereDesc} index={index} />)}

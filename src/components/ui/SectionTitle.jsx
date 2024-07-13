@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Image from './Image';
 import arrow from '../../assets/left-arrow.png';
 
-function SectionTitle({ maintext, spantext, className, textClassName, hideImg }) {
+function SectionTitle({ maintext, spantext, className, textClassName, hideImg = false }) {
     return (
         <div className={`flex items-center justify-center gap-2  ${className}`}>
             <Image src={arrow} alt="pointer"
@@ -22,7 +22,7 @@ SectionTitle.propTypes = {
     spantext: PropTypes.string,
     className: PropTypes.string,
     textClassName: PropTypes.string,
-    hideImg: PropTypes.boolean
+    hideImg: PropTypes.bool
 };
 
 export default SectionTitle;

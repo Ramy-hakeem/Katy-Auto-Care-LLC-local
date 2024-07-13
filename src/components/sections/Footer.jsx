@@ -15,8 +15,7 @@ function Footer() {
            
             '>
                 <div >
-                    <h1 className='font-semibold mb-4 text-white
-                    
+                    <h1 className='font-semibold mb-4 text-white   
                     text-sm sm:text-xl md:text-2xl lg:text-xl
                     '>
                         Opening Hours
@@ -97,10 +96,10 @@ function Footer() {
                             text-xs sm:text-sm md:text-lg lg:text-sm
                     ' >
                         <div className="flex lg:hidden justify-center items-center">
-                            <Icon name={"phone"} height={"20"} width={"20"} />&nbsp;18325433334
+                            <Icon name={"phone"} height={"20"} width={"20"} />&nbsp;832-543-3334
                         </div>
                         <div className="hidden lg:flex justify-center items-center">
-                            <Icon name={"phone"} />&nbsp;18325433334
+                            <Icon name={"phone"} />&nbsp;832-543-3334
                         </div>
 
                     </div>

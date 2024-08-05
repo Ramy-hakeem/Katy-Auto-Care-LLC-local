@@ -10,7 +10,8 @@ import { useSelector } from "react-redux";
 import SelectInput from "../../components/ui/SelectInput";
 
 function Register() {
-    const { isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
+    //  const { isLoading, isError, isSuccess, message } = useSelector((state) => state.auth);
+    const [isLoading, isError, isSuccess, message] = [false, false, false, false]
     const states = [
         { name: "Alabama", abbreviation: "AL" },
         { name: "Alaska", abbreviation: "AK" },

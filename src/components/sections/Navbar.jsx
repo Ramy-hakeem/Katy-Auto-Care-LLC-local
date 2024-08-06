@@ -7,7 +7,9 @@ import backArrow from "../../assets/backArrow.png";
 import phone from "../../assets/phone.png";
 import loc from "../../assets/location.png";
 import { useState } from "react";
-
+import notificationBell from "../../assets/notificationBell.png";
+import avatar from "../../assets/avatar.jpg";
+import useAuth from "../../hooks/useAuth";
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
   const navLinks = [
@@ -17,7 +19,7 @@ function Navbar() {
     { route: "/vehicles", title: "Vehicles Inventory" },
     { route: "/about", title: "About Us" },
   ];
-
+  const { isAuthenticated } = useAuth();
   const location = useLocation();
 
   return (
@@ -91,18 +93,29 @@ function Navbar() {
             </li>
           ))}
         </ul>
-        <div className="hidden xl:flex gap-7">
-          <Link to="login">
-            <Button className="text-[20px] lg:text-[16px] w-[106px] lg:w-[88px] font-medium bg-white text-midnightBlack hover:text-white hover:bg-navyBlue border border-navyBlue rounded-lg py-2.5 px-3.5 normal-case">
-              Login
-            </Button>
-          </Link>
-          <Link to="register">
-            <Button className="text-[20px] lg:text-[16px] font-medium text-white bg-navyBlue border border-white rounded-lg py-2.5 px-3.5 normal-case">
-              Register
-            </Button>
-          </Link>
-        </div>
+        {isAuthenticated ? (
+          <div className="hidden xl:flex gap-10 items-center pr-20">
+            <img
+              src={notificationBell}
+              alt="notificationBell"
+              className="size-6"
+            />
+            <img src={avatar} alt="avatar" className="size-14 rounded-full" />
+          </div>
+        ) : (
+          <div className="hidden xl:flex gap-7">
+            <Link to="login">
+              <Button className="text-[20px] lg:text-[16px] w-[106px] lg:w-[88px] font-medium bg-white text-midnightBlack hover:text-white hover:bg-navyBlue border border-navyBlue rounded-lg py-2.5 px-3.5 normal-case">
+                Login
+              </Button>
+            </Link>
+            <Link to="register">
+              <Button className="text-[20px] lg:text-[16px] font-medium text-white bg-navyBlue border border-white rounded-lg py-2.5 px-3.5 normal-case">
+                Register
+              </Button>
+            </Link>
+          </div>
+        )}
 
         <img
           src={menu}

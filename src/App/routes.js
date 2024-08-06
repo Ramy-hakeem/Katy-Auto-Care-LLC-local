@@ -7,7 +7,7 @@ export default [
     component: lazy(() => import("../pages/guest/Home")),
     private: false,
     role: "guest",
-    afterAuth: true
+    afterAuth: true,
   },
   {
     path: `/login`,
@@ -15,7 +15,7 @@ export default [
     component: lazy(() => import("../pages/guest/Login")),
     private: false,
     role: "guest",
-    afterAuth: false
+    afterAuth: false,
   },
   {
     path: `/register`,
@@ -23,8 +23,7 @@ export default [
     component: lazy(() => import("../pages/guest/Register")),
     private: false,
     role: "guest",
-    afterAuth: false
-
+    afterAuth: false,
   },
   {
     path: `/forgot-password`,
@@ -32,8 +31,7 @@ export default [
     component: lazy(() => import("../pages/guest/ForgotPassword")),
     private: false,
     role: "guest",
-    afterAuth: false
-
+    afterAuth: false,
   },
   {
     path: `/reset-password`,
@@ -41,7 +39,7 @@ export default [
     component: lazy(() => import("../pages/guest/ResetPassword")),
     private: false,
     role: "guest",
-    afterAuth: false
+    afterAuth: false,
   },
   {
     path: `/add-car`,
@@ -49,6 +47,14 @@ export default [
     component: lazy(() => import("../pages/customer/AddCar")),
     private: false,
     role: "customer",
-    afterAuth: true
+    afterAuth: true,
+  },
+  {
+    path: `/*`,
+    name: "Default Page",
+    component: lazy(() => import("../pages/guest/Home")),
+    private: false,
+    role: "guest",
+    afterAuth: true,
   },
 ];

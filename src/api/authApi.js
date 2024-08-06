@@ -11,8 +11,31 @@ const authApi = baseAPI.injectEndpoints({
         };
       },
     }),
+    getUserData: builder.query({
+      query: (id) => {
+        return {
+          url: `customer/get_customer/${id}`,
+        };
+      },
+    }),
+    createNewAccount: builder.mutation({
+      query: (body) => {
+        return {
+          url: "customer/register",
+          method: "POST",
+          body: body,
+        };
+      },
+    }),
   }),
+
+  overrideExisting: false,
 });
 
-export const { useLoginMutation } = authApi;
+export const {
+  useLoginMutation,
+  useGetUserDataQuery,
+  useLazyGetUserDataQuery,
+  useCreateNewAccountMutation,
+} = authApi;
 export default authApi;

@@ -4,8 +4,7 @@ import BASE_URL from "./BaseURL";
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
   prepareHeaders: (headers, { getState }) => {
-    // Remove or modify the Content-Type setting
-    const token = getState()?.auth?.token; // Ensure this path is correct
+    const token = getState()?.auth?.userData?.access_token;
     if (token) {
       headers.set("authorization", `Bearer ${token}`);
     }

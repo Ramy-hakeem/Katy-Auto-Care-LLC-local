@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Description from "../../components/ui/Description";
 import Input from "../../components/ui/Input";
 import SectionTitle from "../../components/ui/SectionTitle";
@@ -7,38 +7,54 @@ import { Button } from "@material-tailwind/react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useState } from "react";
-import { useLoginMutation } from "../../api/authApi";
+import { useLazyGetUserDataQuery, useLoginMutation } from "../../api/authApi";
 import { setState } from "../../utils/utils";
+import { useDispatch } from "react-redux";
+import { addLoginData, addUserData } from "../../features/auth/authSlice";
 
 function Login() {
+  const dispatch = useDispatch();
   const [rememberMe, setRememberMe] = useState(false);
   const initialValues = {
-    email: "",
+    username: "",
     password: "",
   };
 
-  const [getUserData, { isLoading, isError, error }] = useLoginMutation();
+  const [getLoginData, { isLoading, isError, error }] = useLoginMutation();
+  const [getUserData, { isLoading: isLoadingUserData, isSuccess }] =
+    useLazyGetUserDataQuery();
+  console.log();
   const validationSchema = yup.object().shape({
-    userName: yup
+    username: yup
       .string()
       .required("This is a required field")
-    //.email("this email is not valie")
-    ,
+      .email("this email is not valie"),
     password: yup.string().required("This is a required field"),
   });
 
-  const onSubmit = async () => {
-    const formData = new FormData();
-    formData.append('username', 'hello_world');
-    formData.append('password', 'hello_world');
-
+  const onSubmit = async (values) => {
     try {
-      const response = await getUserData(formData).unwrap();
-      rememberMe && setState("katyAutoCareUserData", response.data)
+      const response = await getLoginData(values).unwrap();
+      const loginData = {
+        access_token: response.data.access_token,
+        isAuthenticated: true,
+        id: response.data.customer_id,
+        role: response.data.user_type,
+      };
+
+      setState("katyAutoCareUserData", loginData, rememberMe);
+
+      dispatch(addLoginData({ ...loginData }));
+      const userData = await getUserData(loginData.id).unwrap();
+      dispatch(addUserData(userData));
+      if (isSuccess) {
+        <Navigate to={"/"} />;
+      }
     } catch (err) {
       console.error("Failed to fetch user data:", err);
     }
   };
+  console.log("error", error)
 
   const formik = useFormik({
     initialValues,
@@ -77,7 +93,7 @@ function Login() {
         <div className="w-10/12 flex flex-col">
           <Input
             formik={formik}
-            name={"email"}
+            name={"username"}
             label={"Email"}
             placeholder={"Enter your Email"}
           />
@@ -118,11 +134,13 @@ function Login() {
                       text-sm sm:text-2xl xl:text-3xl
                   "
           >
-            {isLoading ? "Loading..." : "Sign in"}
+            {isLoading || isLoadingUserData ? "Loading..." : "Sign in"}
           </Button>
           {isError && (
             <p className="text-red-500 mt-4">
-              {error?.data?.message || error?.error || "An error occurred"}
+              {error?.data?.detail[0]?.msg || error?.data?.detail?.message ||
+                error?.error ||
+                "An error occurred"}
             </p>
           )}
           <p className="text-wrap text-center !text-sm sm:!text-lg xl:!text-2xl mt-2">

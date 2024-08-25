@@ -24,7 +24,12 @@ function RatingSection() {
             <a target="_blank" href='https://www.google.com/maps/place/Katy+Auto+Care+LLC/@29.864924,-95.703583,15z/data=!4m8!3m7!1s0x8640d7996194365d:0x57ade83228758c7!8m2!3d29.8649242!4d-95.7035831!9m1!1b1!16s%2Fg%2F11rs9ls6sg?hl=en&entry=ttu'>
                 <Image src={googleRate} alt='google rate' className='h-auto w-52 sm:w-64 md:w-72 lg:w-80' />
             </a>
-            <Carousel cards={<ReviewCard />} arrowIsUnder={true} />
+            <Carousel arrowIsUnder={true} >
+                <ReviewCard />
+                <ReviewCard />
+                <ReviewCard />
+                <ReviewCard />
+            </Carousel>
 
 
         </div>

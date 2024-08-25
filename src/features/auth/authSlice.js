@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getState } from "../../utils/utils";
+import { getState, removeState } from "../../utils/utils";
 
 const storedData = getState("katyAutoCareUserData");
 
@@ -45,9 +45,29 @@ export const authSlice = createSlice({
       state.userData.profile_image = action.payload.profile_image;
       state.userData.isAuthenticated = action.payload.isAuthenticated;
     },
+    logout: (state) => {
+      removeState("katyAutoCareUserData")
+      state.userData = {
+        access_token: null,
+        isAuthenticated: false,
+        id: null,
+        role: null,
+        //not in the cookie
+        name: "",
+        address: "",
+        phone_number_one: "",
+        phone_number_two: "",
+        state: "",
+        city: "",
+        zip: "",
+        email: "",
+        profile_image: "",
+      };
+
+    },
   },
 });
 
-export const { addLoginData, addUserData } = authSlice.actions;
+export const { addLoginData, addUserData, logout } = authSlice.actions;
 const authReducer = authSlice.reducer;
 export default authReducer;

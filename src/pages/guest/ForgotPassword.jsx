@@ -24,7 +24,7 @@ function ForgotPassword() {
     phone_number: yup.string().required("required field"),
   });
 
-  const onSubmit = () => {};
+  const onSubmit = () => { };
 
   const formik = useFormik({
     initialValues,

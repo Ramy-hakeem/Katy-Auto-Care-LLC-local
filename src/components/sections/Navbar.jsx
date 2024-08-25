@@ -83,11 +83,10 @@ function Navbar() {
           {navLinks.map((link) => (
             <li
               key={link.route}
-              className={`text-[20px] lg:text-[16px] font-medium leading-[30px] uppercase mx-2 whitespace-nowrap ${
-                location.pathname === link.route
+              className={`text-[20px] lg:text-[16px] font-medium leading-[30px] uppercase mx-2 whitespace-nowrap ${location.pathname === link.route
                   ? "border-b-2 border-pumpkin text-pumpkin"
                   : "text-midnightBlack"
-              } hover:border-b-2 hover:border-pumpkin hover:text-pumpkin`}
+                } hover:border-b-2 hover:border-pumpkin hover:text-pumpkin`}
             >
               <Link to={link.route}>{link.title}</Link>
             </li>
@@ -126,9 +125,8 @@ function Navbar() {
       </section>
 
       <section
-        className={`bg-white mt-[2.5px] px-5 py-10 ${
-          showMenu ? "block" : "hidden"
-        } xl:hidden`}
+        className={`bg-white mt-[2.5px] px-5 py-10 ${showMenu ? "block" : "hidden"
+          } xl:hidden`}
       >
         <img
           src={backArrow}
@@ -140,11 +138,10 @@ function Navbar() {
           {navLinks.map((link) => (
             <li
               key={link.route}
-              className={` font-medium  uppercase mx-2 whitespace-nowrap ${
-                location.pathname === link.route
+              className={` font-medium  uppercase mx-2 whitespace-nowrap ${location.pathname === link.route
                   ? "border-pumpkin text-pumpkin"
                   : "text-midnightBlack"
-              } hover:border-pumpkin hover:text-pumpkin
+                } hover:border-pumpkin hover:text-pumpkin
                             text-sm sm:text-lg md:text-xl
                             `}
             >

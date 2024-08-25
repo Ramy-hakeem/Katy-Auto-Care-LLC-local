@@ -9,9 +9,9 @@ function SectionTitle({ maintext, spantext, className, textClassName, hideImg = 
 
                 className={`h-auto w-3 sm:w-5 ${hideImg && "hidden"}`}
             />
-            <h1 className={`font-bold  text-navyBlue flex justify-center items-center
+            <h1 className={`font-bold  text-navyBlue flex  
                 text-sm sm:text-2xl lg:text-3xl  uppercase ${textClassName}`}>
-                {maintext} <span className="text-flame">{spantext}</span>
+                {maintext} <span className="text-flame">&nbsp;{spantext}</span>
             </h1>
         </div>
     );

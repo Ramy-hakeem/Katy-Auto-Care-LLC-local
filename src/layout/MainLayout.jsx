@@ -1,12 +1,14 @@
-import Navbar from "../components/sections/Navbar";
 import Footer from "../components/sections/Footer";
 import propTypes from "prop-types";
+import { StickyNavbar } from "../components/sections/StickyNavbar";
 function MainLayout({ children }) {
   return (
     <>
-      <Navbar />
+      <StickyNavbar />
       {children}
+
       <Footer />
+
     </>
   );
 }

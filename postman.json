@@ -1,490 +1,12 @@
 {
   "info": {
-    "_postman_id": "80e8e127-935a-404f-a5a4-824cc28c445e",
+    "_postman_id": "5bebb310-d76f-4aed-8950-53e6c5f86fe8",
     "name": "katyautocarellc",
     "description": "# 🚀 Get started here\n\nThis collection guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this collection**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these request types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT and PATCH requests.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a variable called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more scripts in \"Tests\" to verify if the API works as expected and execute flows.\n    \n\n## ℹ️ Resources\n\n[Building requests](https://learning.postman.com/docs/sending-requests/requests/)  \n[Authorizing requests](https://learning.postman.com/docs/sending-requests/authorization/)  \n[Using variables](https://learning.postman.com/docs/sending-requests/variables/)  \n[Managing environments](https://learning.postman.com/docs/sending-requests/managing-environments/)  \n[Writing scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/)",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "12570107"
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "_exporter_id": "24752254"
   },
   "item": [
-    {
-      "name": "car",
-      "item": [
-        {
-          "name": "get_car",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Successful POST request\", function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  ""
-                ],
-                "type": "text/javascript",
-                "packages": {}
-              }
-            }
-          ],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiR0lOOEQzNzc4VklPRERMOU42VDAiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNCAxMDowMTo1NSJ9.lJ1FErBbMnjc-rRR1v8ygtSaHADLxxub6N2uRuprEZE",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{url}}car/get_car/120",
-              "host": ["{{url}}car"],
-              "path": ["get_car", "120"]
-            },
-            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
-          },
-          "response": [
-            {
-              "name": "get_car",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "{{url}}car/get_car/120",
-                  "host": ["{{url}}car"],
-                  "path": ["get_car", "120"]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "date",
-                  "value": "Sun, 04 Aug 2024 17:49:33 GMT"
-                },
-                {
-                  "key": "server",
-                  "value": "uvicorn"
-                },
-                {
-                  "key": "content-length",
-                  "value": "206"
-                },
-                {
-                  "key": "content-type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n    \"id\": 120,\n    \"mileage\": 122978,\n    \"year\": \"2013\",\n    \"vin\": \"WBAFR7C5XDc817560\",\n    \"license_plate\": \"M44ML-3157\",\n    \"model\": \"5351\",\n    \"make\": {\n        \"id\": 5,\n        \"make\": \"AC\"\n    },\n    \"engine_type\": \"xyy\",\n    \"color\": {\n        \"id\": 4,\n        \"hex\": \"#00FF00\",\n        \"name\": \"Lime\"\n    }\n}"
-            }
-          ]
-        },
-        {
-          "name": "get_cars",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Successful POST request\", function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  ""
-                ],
-                "type": "text/javascript",
-                "packages": {}
-              }
-            }
-          ],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiR0lOOEQzNzc4VklPRERMOU42VDAiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNCAxMDowMTo1NSJ9.lJ1FErBbMnjc-rRR1v8ygtSaHADLxxub6N2uRuprEZE",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{url}}car/get_cars/140",
-              "host": ["{{url}}car"],
-              "path": ["get_cars", "140"]
-            },
-            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
-          },
-          "response": [
-            {
-              "name": "get_cars",
-              "originalRequest": {
-                "method": "GET",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "{{url}}car/get_cars/140",
-                  "host": ["{{url}}car"],
-                  "path": ["get_cars", "140"]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "date",
-                  "value": "Sun, 04 Aug 2024 17:51:35 GMT"
-                },
-                {
-                  "key": "server",
-                  "value": "uvicorn"
-                },
-                {
-                  "key": "content-length",
-                  "value": "832"
-                },
-                {
-                  "key": "content-type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "[\n    {\n        \"id\": 120,\n        \"mileage\": 122978,\n        \"year\": \"2013\",\n        \"vin\": \"WBAFR7C5XDc817560\",\n        \"license_plate\": \"M44ML-3157\",\n        \"model\": \"5351\",\n        \"make\": {\n            \"id\": 5,\n            \"make\": \"AC\"\n        },\n        \"engine_type\": \"xyy\",\n        \"color\": {\n            \"id\": 4,\n            \"hex\": \"#00FF00\",\n            \"name\": \"Lime\"\n        }\n    },\n    {\n        \"id\": 122,\n        \"mileage\": 122978,\n        \"year\": \"2013\",\n        \"vin\": \"WBAFR7C5XDc817560\",\n        \"license_plate\": \"M44ML-3107\",\n        \"model\": \"5351\",\n        \"make\": {\n            \"id\": 5,\n            \"make\": \"AC\"\n        },\n        \"engine_type\": \"xyy\",\n        \"color\": {\n            \"id\": 4,\n            \"hex\": \"#00FF00\",\n            \"name\": \"Lime\"\n        }\n    },\n    {\n        \"id\": 123,\n        \"mileage\": 1228,\n        \"year\": \"2073\",\n        \"vin\": \"888nnkkXDc817560\",\n        \"license_plate\": \"M44ML-3957\",\n        \"model\": \"5301\",\n        \"make\": {\n            \"id\": 7,\n            \"make\": \"ACURA\"\n        },\n        \"engine_type\": \"zzy\",\n        \"color\": {\n            \"id\": 5,\n            \"hex\": \"#0000FF\",\n            \"name\": \"Blue\"\n        }\n    },\n    {\n        \"id\": 124,\n        \"mileage\": 12978,\n        \"year\": \"2713\",\n        \"vin\": \"WBAFR7C5XDcfgtyhjkl60\",\n        \"license_plate\": \"M44ML-8157\",\n        \"model\": \"5051\",\n        \"make\": {\n            \"id\": 5,\n            \"make\": \"AC\"\n        },\n        \"engine_type\": \"yzz\",\n        \"color\": {\n            \"id\": 4,\n            \"hex\": \"#00FF00\",\n            \"name\": \"Lime\"\n        }\n    }\n]"
-            }
-          ]
-        },
-        {
-          "name": "add_car",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Successful POST request\", function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  ""
-                ],
-                "type": "text/javascript",
-                "packages": {}
-              }
-            }
-          ],
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiR0lOOEQzNzc4VklPRERMOU42VDAiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNCAxMDowMTo1NSJ9.lJ1FErBbMnjc-rRR1v8ygtSaHADLxxub6N2uRuprEZE",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "[{\n\t\"mileage\": 122978,\n    \"year\": \"2013\",\n    \"vin\": \"WBAFR7C5XDc817560\",\n    \"license_plate\": \"M44ML-3107\",\n    \"make_id\": 5,\n    \"model\": \"5351\",\n    \"engine_type\" : \"xyy\",\n    \"color_id\": 4\n}]",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{url}}car/add_car",
-              "host": ["{{url}}car"],
-              "path": ["add_car"]
-            },
-            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
-          },
-          "response": [
-            {
-              "name": "add_cars",
-              "originalRequest": {
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "[{\n\t\"mileage\": 122978,\n    \"year\": \"2013\",\n    \"vin\": \"WBAFR7C5XDc817560\",\n    \"license_plate\": \"M44ML-3107\",\n    \"make_id\": 5,\n    \"model\": \"5351\",\n    \"engine_type\" : \"xyy\",\n    \"color_id\": 4\n},{\n\t\"mileage\": 1228,\n    \"year\": \"2073\",\n    \"vin\": \"888nnkkXDc817560\",\n    \"license_plate\": \"M44ML-3957\",\n    \"make_id\": 7,\n    \"model\": \"5301\",\n    \"engine_type\" : \"zzy\",\n    \"color_id\": 5\n},{\n\t\"mileage\": 12978,\n    \"year\": \"2713\",\n    \"vin\": \"WBAFR7C5XDcfgtyhjkl60\",\n    \"license_plate\": \"M44ML-8157\",\n    \"make_id\": 5,\n    \"model\": \"5051\",\n    \"engine_type\" : \"yzz\",\n    \"color_id\": 4\n}]",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "{{url}}car/add_car",
-                  "host": ["{{url}}car"],
-                  "path": ["add_car"]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "date",
-                  "value": "Sun, 04 Aug 2024 17:43:50 GMT"
-                },
-                {
-                  "key": "server",
-                  "value": "uvicorn"
-                },
-                {
-                  "key": "content-length",
-                  "value": "77"
-                },
-                {
-                  "key": "content-type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n    \"detail\": {\n        \"state\": true,\n        \"error\": \"No Error.\",\n        \"message\": \"added successfully.\"\n    }\n}"
-            },
-            {
-              "name": "add_car",
-              "originalRequest": {
-                "method": "POST",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "[{\n\t\"mileage\": 122978,\n    \"year\": \"2013\",\n    \"vin\": \"WBAFR7C5XDc817560\",\n    \"license_plate\": \"M44ML-3107\",\n    \"make_id\": 5,\n    \"model\": \"5351\",\n    \"engine_type\" : \"xyy\",\n    \"color_id\": 4\n}]",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "{{url}}car/add_car",
-                  "host": ["{{url}}car"],
-                  "path": ["add_car"]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "date",
-                  "value": "Sun, 04 Aug 2024 17:43:50 GMT"
-                },
-                {
-                  "key": "server",
-                  "value": "uvicorn"
-                },
-                {
-                  "key": "content-length",
-                  "value": "77"
-                },
-                {
-                  "key": "content-type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n    \"detail\": {\n        \"state\": true,\n        \"error\": \"No Error.\",\n        \"message\": \"added successfully.\"\n    }\n}"
-            }
-          ]
-        },
-        {
-          "name": "delete_car",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Successful POST request\", function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  ""
-                ],
-                "type": "text/javascript",
-                "packages": {}
-              }
-            }
-          ],
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiR0lOOEQzNzc4VklPRERMOU42VDAiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNCAxMDowMTo1NSJ9.lJ1FErBbMnjc-rRR1v8ygtSaHADLxxub6N2uRuprEZE",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{url}}car/delete_car/120",
-              "host": ["{{url}}car"],
-              "path": ["delete_car", "120"]
-            },
-            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
-          },
-          "response": [
-            {
-              "name": "delete_car",
-              "originalRequest": {
-                "method": "DELETE",
-                "header": [],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                },
-                "url": {
-                  "raw": "{{url}}car/delete_car/120",
-                  "host": ["{{url}}car"],
-                  "path": ["delete_car", "120"]
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "date",
-                  "value": "Sun, 04 Aug 2024 17:58:57 GMT"
-                },
-                {
-                  "key": "server",
-                  "value": "uvicorn"
-                },
-                {
-                  "key": "content-length",
-                  "value": "98"
-                },
-                {
-                  "key": "content-type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n    \"detail\": {\n        \"state\": true,\n        \"error\": \"No Error.\",\n        \"message\": \"car with ID => 120 deleted successfully.\"\n    }\n}"
-            }
-          ]
-        },
-        {
-          "name": "get_number_of_cars",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "pm.test(\"Successful POST request\", function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  ""
-                ],
-                "type": "text/javascript",
-                "packages": {}
-              }
-            }
-          ],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiR0lOOEQzNzc4VklPRERMOU42VDAiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNCAxMDowMTo1NSJ9.lJ1FErBbMnjc-rRR1v8ygtSaHADLxxub6N2uRuprEZE",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": {
-              "raw": "{{url}}car/number_of_cars",
-              "host": ["{{url}}car"],
-              "path": ["number_of_cars"]
-            },
-            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
-          },
-          "response": []
-        }
-      ]
-    },
     {
       "name": "cusotmer",
       "item": [
@@ -517,11 +39,7 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}customer/register",
-              "host": ["{{url}}customer"],
-              "path": ["register"]
-            },
+            "url": "{{url}}customer/register",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": [
@@ -539,11 +57,7 @@
                     }
                   }
                 },
-                "url": {
-                  "raw": "{{url}}customer/register",
-                  "host": ["{{url}}customer"],
-                  "path": ["register"]
-                }
+                "url": "{{url}}customer/register"
               },
               "status": "OK",
               "code": 200,
@@ -593,18 +107,14 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"username\" : \"marinaa.ateff@gmail.com\",\r\n    \"password\" : \"testtnumber2\"\r\n}",
+              "raw": "{\r\n    \"username\" : \"hello@wosrdld.com\",\r\n    \"password\" : \"hello_world\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}customer/login",
-              "host": ["{{url}}customer"],
-              "path": ["login"]
-            },
+            "url": "{{url}}customer/login",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": [
@@ -622,11 +132,7 @@
                     }
                   }
                 },
-                "url": {
-                  "raw": "{{url}}customer/login",
-                  "host": ["{{url}}customer"],
-                  "path": ["login"]
-                }
+                "url": "{{url}}customer/login"
               },
               "status": "OK",
               "code": 200,
@@ -666,11 +172,7 @@
                     }
                   }
                 },
-                "url": {
-                  "raw": "{{url}}customer/login",
-                  "host": ["{{url}}customer"],
-                  "path": ["login"]
-                }
+                "url": "{{url}}customer/login"
               },
               "status": "OK",
               "code": 200,
@@ -721,13 +223,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDEsInJhbmRvbV9zdHIiOiJaU0tTMEhYQlpNN1UwUUFYRVBRRiIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDE1OjM0OjQ1In0.tbcWXcryyHnykzNf-U6LuAIXOsE8UxAeReZRhXKG6ms",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDEsInJhbmRvbV9zdHIiOiJaU0tTMEhYQlpNN1UwUUFYRVBRRiIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDE1OjM0OjQ1In0.tbcWXcryyHnykzNf-U6LuAIXOsE8UxAeReZRhXKG6ms"
+              }
             },
             "method": "GET",
             "header": [],
@@ -746,11 +244,7 @@
                 }
               ]
             },
-            "url": {
-              "raw": "{{url}}customer/get_customer/42",
-              "host": ["{{url}}customer"],
-              "path": ["get_customer", "42"]
-            },
+            "url": "{{url}}customer/get_customer/42",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": [
@@ -759,26 +253,7 @@
               "originalRequest": {
                 "method": "GET",
                 "header": [],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [
-                    {
-                      "key": "username",
-                      "value": "hellohello",
-                      "type": "text"
-                    },
-                    {
-                      "key": "password",
-                      "value": "hello_world",
-                      "type": "text"
-                    }
-                  ]
-                },
-                "url": {
-                  "raw": "{{url}}customer/get_customer/140",
-                  "host": ["{{url}}customer"],
-                  "path": ["get_customer", "140"]
-                }
+                "url": "{{url}}customer/get_customer/140"
               },
               "status": "OK",
               "code": 200,
@@ -826,13 +301,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDEsInJhbmRvbV9zdHIiOiJXTFhOV1RZUUwzWEpUUlk4VjA4RSIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDE2OjAwOjU0In0.VqJqrNot0oka8ZtecAqR1w14pK53BI8vPcJgwvlsPHw",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDEsInJhbmRvbV9zdHIiOiJXTFhOV1RZUUwzWEpUUlk4VjA4RSIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDE2OjAwOjU0In0.VqJqrNot0oka8ZtecAqR1w14pK53BI8vPcJgwvlsPHw"
+              }
             },
             "method": "PUT",
             "header": [],
@@ -845,17 +316,413 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}customer/update_credentials/44",
-              "host": ["{{url}}customer"],
-              "path": ["update_credentials", "44"]
-            },
+            "url": "{{url}}customer/update_credentials/44",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": []
         }
       ],
       "description": "notes:\n\n1. for registeration we have only phone number two is an optional feild"
+    },
+    {
+      "name": "car",
+      "item": [
+        {
+          "name": "get_car",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Successful POST request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiOVE1UzhQMk1WU0VOMFlTTEtFU0oiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNyAwMjoxNjoyMiJ9.Cl9sv3yYEwvEhfhx497CIYDv2Qj4Du1QLfIvTgItc-o"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}car/get_car/136",
+            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": [
+            {
+              "name": "get_car",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{url}}car/get_car/120"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 04 Aug 2024 17:49:33 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "206"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 120,\n    \"mileage\": 122978,\n    \"year\": \"2013\",\n    \"vin\": \"WBAFR7C5XDc817560\",\n    \"license_plate\": \"M44ML-3157\",\n    \"model\": \"5351\",\n    \"make\": {\n        \"id\": 5,\n        \"make\": \"AC\"\n    },\n    \"engine_type\": \"xyy\",\n    \"color\": {\n        \"id\": 4,\n        \"hex\": \"#00FF00\",\n        \"name\": \"Lime\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "get_cars",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Successful POST request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiR0lOOEQzNzc4VklPRERMOU42VDAiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNCAxMDowMTo1NSJ9.lJ1FErBbMnjc-rRR1v8ygtSaHADLxxub6N2uRuprEZE"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}car/get_cars/140",
+            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": [
+            {
+              "name": "get_cars",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{url}}car/get_cars/140"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 04 Aug 2024 17:51:35 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "832"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 120,\n        \"mileage\": 122978,\n        \"year\": \"2013\",\n        \"vin\": \"WBAFR7C5XDc817560\",\n        \"license_plate\": \"M44ML-3157\",\n        \"model\": \"5351\",\n        \"make\": {\n            \"id\": 5,\n            \"make\": \"AC\"\n        },\n        \"engine_type\": \"xyy\",\n        \"color\": {\n            \"id\": 4,\n            \"hex\": \"#00FF00\",\n            \"name\": \"Lime\"\n        }\n    },\n    {\n        \"id\": 122,\n        \"mileage\": 122978,\n        \"year\": \"2013\",\n        \"vin\": \"WBAFR7C5XDc817560\",\n        \"license_plate\": \"M44ML-3107\",\n        \"model\": \"5351\",\n        \"make\": {\n            \"id\": 5,\n            \"make\": \"AC\"\n        },\n        \"engine_type\": \"xyy\",\n        \"color\": {\n            \"id\": 4,\n            \"hex\": \"#00FF00\",\n            \"name\": \"Lime\"\n        }\n    },\n    {\n        \"id\": 123,\n        \"mileage\": 1228,\n        \"year\": \"2073\",\n        \"vin\": \"888nnkkXDc817560\",\n        \"license_plate\": \"M44ML-3957\",\n        \"model\": \"5301\",\n        \"make\": {\n            \"id\": 7,\n            \"make\": \"ACURA\"\n        },\n        \"engine_type\": \"zzy\",\n        \"color\": {\n            \"id\": 5,\n            \"hex\": \"#0000FF\",\n            \"name\": \"Blue\"\n        }\n    },\n    {\n        \"id\": 124,\n        \"mileage\": 12978,\n        \"year\": \"2713\",\n        \"vin\": \"WBAFR7C5XDcfgtyhjkl60\",\n        \"license_plate\": \"M44ML-8157\",\n        \"model\": \"5051\",\n        \"make\": {\n            \"id\": 5,\n            \"make\": \"AC\"\n        },\n        \"engine_type\": \"yzz\",\n        \"color\": {\n            \"id\": 4,\n            \"hex\": \"#00FF00\",\n            \"name\": \"Lime\"\n        }\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "add_car",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Successful POST request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY0LCJyYW5kb21fc3RyIjoiMDNRREFBSkdUVk9UNjVBS1gyS1MiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wOCAxMzozNTo0MSJ9.ueVe6gf9DfBgfNPCIuUTdv9ITsUGF2MXLfFRX6bDdJA"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\n\t\"mileage\": 122978,\n    \"year\": \"2013\",\n    \"vin\": \"WBAFR7C5XDc817560\",\n    \"license_plate\": \"dM4dr4ML-3107\",\n    \"make_id\": 5,\n    \"model\": \"5351\",\n    \"engine_type\" : \"xyy\",\n    \"color_id\": 4,\n    \"model_id\": 1,\n    \"engine_id\": 5\n},\n{\n\t\"mileage\": 122978,\n    \"year\": \"2013\",\n    \"vin\": \"WBAFR7C5XDc817560\",\n    \"license_plate\": \"M4dr4dML-3107\",\n    \"make_id\": 5,\n    \"model\": \"5351\",\n    \"engine_type\" : \"xyy\",\n    \"color_id\": 4,\n    \"model_id\": 1,\n    \"engine_id\": 5\n}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}car/add_car",
+            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": [
+            {
+              "name": "add_car",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[{\n\t\"mileage\": 122978,\n    \"year\": \"2013\",\n    \"vin\": \"WBAFR7C5XDc817560\",\n    \"license_plate\": \"M44ML-3107\",\n    \"make_id\": 5,\n    \"model_id\": \"1\",\n    \"engine_id\" : \"1\",\n    \"color_id\": 4\n}]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{url}}car/add_car"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Aug 2024 17:22:50 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "77"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"detail\": {\n        \"state\": true,\n        \"error\": \"No Error.\",\n        \"message\": \"added successfully.\"\n    }\n}"
+            },
+            {
+              "name": "add_cars",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[{\n\t\"mileage\": 122978,\n    \"year\": \"2013\",\n    \"vin\": \"WBAFR7C5XDc817560\",\n    \"license_plate\": \"M44ML-3107\",\n    \"make_id\": 5,\n    \"model_id\": \"1\",\n    \"engine_id\" : \"1\",\n    \"color_id\": 4\n},{\n\t\"mileage\": 1228,\n    \"year\": \"2073\",\n    \"vin\": \"888nnkkXDc817560\",\n    \"license_plate\": \"M44ML-3957\",\n    \"make_id\": 5,\n    \"model_id\": \"1\",\n    \"engine_id\" : \"1\",\n    \"color_id\": 5\n},{\n\t\"mileage\": 12978,\n    \"year\": \"2713\",\n    \"vin\": \"WBAFR7C5XDcfgtyhjkl60\",\n    \"license_plate\": \"M44ML-8157\",\n    \"make_id\": 5,\n    \"model_id\": \"1\",\n    \"engine_id\" : \"1\",\n    \"color_id\": 4\n}]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{url}}car/add_car"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Aug 2024 17:26:33 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "77"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"detail\": {\n        \"state\": true,\n        \"error\": \"No Error.\",\n        \"message\": \"added successfully.\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "delete_car",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Successful POST request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiR0lOOEQzNzc4VklPRERMOU42VDAiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNCAxMDowMTo1NSJ9.lJ1FErBbMnjc-rRR1v8ygtSaHADLxxub6N2uRuprEZE"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}car/delete_car/120",
+            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": [
+            {
+              "name": "delete_car",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{url}}car/delete_car/120"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Sun, 04 Aug 2024 17:58:57 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "98"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"detail\": {\n        \"state\": true,\n        \"error\": \"No Error.\",\n        \"message\": \"car with ID => 120 deleted successfully.\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "get_number_of_cars",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Successful POST request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiR0lOOEQzNzc4VklPRERMOU42VDAiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNCAxMDowMTo1NSJ9.lJ1FErBbMnjc-rRR1v8ygtSaHADLxxub6N2uRuprEZE"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}car/number_of_cars",
+            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": []
+        }
+      ]
     },
     {
       "name": "appointment",
@@ -880,30 +747,22 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInJhbmRvbV9zdHIiOiJRQ0QxVElOQ0RLRUFCN01PNDVDOCIsImxvZ2luX3RpbWUiOiIyMDI0LTA0LTA2IDIwOjIwOjMxIn0.Wf7EmhuLXd0ZYeiy_YDGQ5XoAgtMeEocl-lNaZZI2OA",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY0LCJyYW5kb21fc3RyIjoiTTJaRTFER0JJTDNXWFBNWjBEUloiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wOCAyMTozNToyOCJ9.8Laypbb3TDSy_Gct_6Bfd5zWVoEN3It9FQmKDfyk1Ro"
+              }
             },
             "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"description\": \"I need to change car oil and air filter\",\n    \"car_id\": 22,\n    \"appointment_date\": \"2015-04-09\",\n    \"appointment_time\": \"10:30 AM\",\n    \"service_ids\": [2,3,4]\n}",
+              "raw": "{\n\t\"description\": \"I need to change car oil and air filter\",\n    \"car_id\": 186,\n    \"appointment_date\": \"2024-04-13\",\n    \"appointment_time\": \"09:30 AM\",\n    \"service_ids\": [2,3,4]\n}",
               "options": {
                 "raw": {
                   "language": "json"
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}appointment/make_appointment",
-              "host": ["{{url}}appointment"],
-              "path": ["make_appointment"]
-            },
+            "url": "{{url}}appointment/make_appointment",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": []
@@ -931,13 +790,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInJhbmRvbV9zdHIiOiJONDJKSFVYMzQ4RURGOUhPMzVXQiIsImxvZ2luX3RpbWUiOiIyMDI0LTA0LTA2IDE4OjMzOjIzIn0.ND6sRBPmbO2u0klVJCYDht5rxdyCez7AjZDHaJDXQzE",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInJhbmRvbV9zdHIiOiJONDJKSFVYMzQ4RURGOUhPMzVXQiIsImxvZ2luX3RpbWUiOiIyMDI0LTA0LTA2IDE4OjMzOjIzIn0.ND6sRBPmbO2u0klVJCYDht5rxdyCez7AjZDHaJDXQzE"
+              }
             },
             "method": "GET",
             "header": [],
@@ -950,11 +805,7 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}appointment/get_appointment/30",
-              "host": ["{{url}}appointment"],
-              "path": ["get_appointment", "30"]
-            },
+            "url": "{{url}}appointment/get_appointment/30",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": []
@@ -982,13 +833,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDEsInJhbmRvbV9zdHIiOiIyV05JOVg5UFlMVlA2NVQ0NzFGUiIsImxvZ2luX3RpbWUiOiIyMDI0LTA0LTA4IDExOjM5OjAxIn0.cQ2OaMcnOTJ8PlEq6hzPcuxx3ScLP214o10C-__RmuE",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDEsInJhbmRvbV9zdHIiOiIyV05JOVg5UFlMVlA2NVQ0NzFGUiIsImxvZ2luX3RpbWUiOiIyMDI0LTA0LTA4IDExOjM5OjAxIn0.cQ2OaMcnOTJ8PlEq6hzPcuxx3ScLP214o10C-__RmuE"
+              }
             },
             "method": "GET",
             "header": [],
@@ -1001,11 +848,7 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}appointment/get_appointments",
-              "host": ["{{url}}appointment"],
-              "path": ["get_appointments"]
-            },
+            "url": "{{url}}appointment/get_appointments",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": []
@@ -1033,13 +876,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInJhbmRvbV9zdHIiOiJONDJKSFVYMzQ4RURGOUhPMzVXQiIsImxvZ2luX3RpbWUiOiIyMDI0LTA0LTA2IDE4OjMzOjIzIn0.ND6sRBPmbO2u0klVJCYDht5rxdyCez7AjZDHaJDXQzE",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInJhbmRvbV9zdHIiOiJONDJKSFVYMzQ4RURGOUhPMzVXQiIsImxvZ2luX3RpbWUiOiIyMDI0LTA0LTA2IDE4OjMzOjIzIn0.ND6sRBPmbO2u0klVJCYDht5rxdyCez7AjZDHaJDXQzE"
+              }
             },
             "method": "GET",
             "header": [],
@@ -1052,11 +891,7 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}appointment/get_customer_appointments/40",
-              "host": ["{{url}}appointment"],
-              "path": ["get_customer_appointments", "40"]
-            },
+            "url": "{{url}}appointment/get_customer_appointments/40",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": []
@@ -1084,13 +919,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInJhbmRvbV9zdHIiOiI2R0UzOFY5VE9ZN0dUWVVWM1ZFVSIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDAwOjAxOjQ1In0.MmSoNI3g9R-uBflBGDaAlRm-kOReOa_z81zRkR2vBFA",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInJhbmRvbV9zdHIiOiI2R0UzOFY5VE9ZN0dUWVVWM1ZFVSIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDAwOjAxOjQ1In0.MmSoNI3g9R-uBflBGDaAlRm-kOReOa_z81zRkR2vBFA"
+              }
             },
             "method": "GET",
             "header": [],
@@ -1103,11 +934,7 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}appointment/number_of_appointments",
-              "host": ["{{url}}appointment"],
-              "path": ["number_of_appointments"]
-            },
+            "url": "{{url}}appointment/number_of_appointments",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": []
@@ -1132,13 +959,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDEsInJhbmRvbV9zdHIiOiJPT0Q4MFQzVTFJQVdPNjBUVDdVNiIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDAwOjA4OjIyIn0.u-jfKiVsQj9YBXz9hrvYpQTZKohYcJXq7n-CLTThVXY",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDEsInJhbmRvbV9zdHIiOiJPT0Q4MFQzVTFJQVdPNjBUVDdVNiIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDAwOjA4OjIyIn0.u-jfKiVsQj9YBXz9hrvYpQTZKohYcJXq7n-CLTThVXY"
+              }
             },
             "method": "POST",
             "header": [],
@@ -1151,11 +974,7 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}appointment/admin/approve_appointment/5",
-              "host": ["{{url}}appointment"],
-              "path": ["admin", "approve_appointment", "5"]
-            },
+            "url": "{{url}}appointment/admin/approve_appointment/5",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": []
@@ -1180,13 +999,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDEsInJhbmRvbV9zdHIiOiJPT0Q4MFQzVTFJQVdPNjBUVDdVNiIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDAwOjA4OjIyIn0.u-jfKiVsQj9YBXz9hrvYpQTZKohYcJXq7n-CLTThVXY",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDEsInJhbmRvbV9zdHIiOiJPT0Q4MFQzVTFJQVdPNjBUVDdVNiIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDAwOjA4OjIyIn0.u-jfKiVsQj9YBXz9hrvYpQTZKohYcJXq7n-CLTThVXY"
+              }
             },
             "method": "POST",
             "header": [],
@@ -1199,11 +1014,7 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}appointment/admin/decline_appointment/8",
-              "host": ["{{url}}appointment"],
-              "path": ["admin", "decline_appointment", "8"]
-            },
+            "url": "{{url}}appointment/admin/decline_appointment/8",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": []
@@ -1228,13 +1039,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDEsInJhbmRvbV9zdHIiOiJPT0Q4MFQzVTFJQVdPNjBUVDdVNiIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDAwOjA4OjIyIn0.u-jfKiVsQj9YBXz9hrvYpQTZKohYcJXq7n-CLTThVXY",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDEsInJhbmRvbV9zdHIiOiJPT0Q4MFQzVTFJQVdPNjBUVDdVNiIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDAwOjA4OjIyIn0.u-jfKiVsQj9YBXz9hrvYpQTZKohYcJXq7n-CLTThVXY"
+              }
             },
             "method": "POST",
             "header": [],
@@ -1247,11 +1054,7 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}appointment/admin/finish_appointment/7",
-              "host": ["{{url}}appointment"],
-              "path": ["admin", "finish_appointment", "7"]
-            },
+            "url": "{{url}}appointment/admin/finish_appointment/7",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": []
@@ -1276,13 +1079,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDIsInJhbmRvbV9zdHIiOiIzWFIyMEg0VEkyVFBYNzRIRUVFMSIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDExOjQ3OjU5In0.snAbJGqlUc0GvL-UBRs47POZb4Z-eE9RsvbwYTIcM80",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDIsInJhbmRvbV9zdHIiOiIzWFIyMEg0VEkyVFBYNzRIRUVFMSIsImxvZ2luX3RpbWUiOiIyMDI0LTAzLTE1IDExOjQ3OjU5In0.snAbJGqlUc0GvL-UBRs47POZb4Z-eE9RsvbwYTIcM80"
+              }
             },
             "method": "DELETE",
             "header": [],
@@ -1295,11 +1094,7 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}appointment/cancel_appointment/8",
-              "host": ["{{url}}appointment"],
-              "path": ["cancel_appointment", "8"]
-            },
+            "url": "{{url}}appointment/cancel_appointment/8",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": []
@@ -1341,11 +1136,7 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}color/get_colors",
-              "host": ["{{url}}color"],
-              "path": ["get_colors"]
-            },
+            "url": "{{url}}color/get_colors",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": []
@@ -1378,13 +1169,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInJhbmRvbV9zdHIiOiIxV1k3WE4yM1M2TlVNWU5ZRThVNiIsImxvZ2luX3RpbWUiOiIyMDI0LTA0LTAxIDIwOjEyOjE0In0.6dR4FnY5M9yAgjVDqdk1fjBsaavHoygrhhc8RymVGLs",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY0LCJyYW5kb21fc3RyIjoiTTJaRTFER0JJTDNXWFBNWjBEUloiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wOCAyMTozNToyOCJ9.8Laypbb3TDSy_Gct_6Bfd5zWVoEN3It9FQmKDfyk1Ro"
+              }
             },
             "method": "GET",
             "header": [],
@@ -1397,11 +1184,47 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}service/services",
-              "host": ["{{url}}service"],
-              "path": ["services"]
+            "url": "{{url}}service",
+            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": []
+        },
+        {
+          "name": "post_service",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Successful POST request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY0LCJyYW5kb21fc3RyIjoiMDNRREFBSkdUVk9UNjVBS1gyS1MiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wOCAxMzozNTo0MSJ9.ueVe6gf9DfBgfNPCIuUTdv9ITsUGF2MXLfFRX6bDdJA"
+              }
             },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"Test Service\",\n    \"description\": \"test description\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}service",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": []
@@ -1434,13 +1257,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInJhbmRvbV9zdHIiOiJBNzZFUFhFRDZESExBTlBFRkw2RCIsImxvZ2luX3RpbWUiOiIyMDI0LTA0LTA3IDEzOjMxOjQ2In0.Orlh1H2vW3SwDKxle6NQ04vYrv_zpLCG_sIa5WzKU8Y",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY0LCJyYW5kb21fc3RyIjoiTTJaRTFER0JJTDNXWFBNWjBEUloiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wOCAyMTozNToyOCJ9.8Laypbb3TDSy_Gct_6Bfd5zWVoEN3It9FQmKDfyk1Ro"
+              }
             },
             "method": "GET",
             "header": [],
@@ -1453,11 +1272,7 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}appointment/available_time_slots",
-              "host": ["{{url}}appointment"],
-              "path": ["available_time_slots"]
-            },
+            "url": "{{url}}appointment/available_time_slots",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
           },
           "response": []
@@ -1490,13 +1305,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInJhbmRvbV9zdHIiOiJQOEIxQUg4QjA3MVM1SVk3UEhLMiIsImxvZ2luX3RpbWUiOiIyMDI0LTA0LTA2IDAwOjIwOjIyIn0._LZerTQSs6d5UQt3WS51XxZmr6-9cNq-P0cEH0g7TTs",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiOVE1UzhQMk1WU0VOMFlTTEtFU0oiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNyAwMjoxNjoyMiJ9.Cl9sv3yYEwvEhfhx497CIYDv2Qj4Du1QLfIvTgItc-o"
+              }
             },
             "method": "GET",
             "header": [],
@@ -1509,12 +1320,490 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}make/get_make",
-              "host": ["{{url}}make"],
-              "path": ["get_make"]
-            },
+            "url": "{{url}}make/get_makelist",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": [
+            {
+              "name": "get_make_list",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{url}}make/get_makelist"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Aug 2024 16:20:39 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "7611"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 5,\n        \"name\": \"AC\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"AC PROPULSION\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"ACURA\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"A.D. TRAMONTANA\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"ALFA ROMEO\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"ALMAC\"\n    },\n    {\n        \"id\": 11,\n        \"name\": \"ALTERNATIVE CARS\"\n    },\n    {\n        \"id\": 12,\n        \"name\": \"AMUZA\"\n    },\n    {\n        \"id\": 13,\n        \"name\": \"ANTEROS\"\n    },\n    {\n        \"id\": 14,\n        \"name\": \"ARASH\"\n    },\n    {\n        \"id\": 15,\n        \"name\": \"ARIEL\"\n    },\n    {\n        \"id\": 16,\n        \"name\": \"ARRINERA\"\n    },\n    {\n        \"id\": 17,\n        \"name\": \"ASL\"\n    },\n    {\n        \"id\": 18,\n        \"name\": \"ASTERIO\"\n    },\n    {\n        \"id\": 19,\n        \"name\": \"ASTON MARTIN\"\n    },\n    {\n        \"id\": 20,\n        \"name\": \"AUDI\"\n    },\n    {\n        \"id\": 21,\n        \"name\": \"BAC\"\n    },\n    {\n        \"id\": 22,\n        \"name\": \"BAJAJ\"\n    },\n    {\n        \"id\": 23,\n        \"name\": \"BEIJING AUTOMOBILE WORKS\"\n    },\n    {\n        \"id\": 24,\n        \"name\": \"BENTLEY\"\n    },\n    {\n        \"id\": 25,\n        \"name\": \"BMW\"\n    },\n    {\n        \"id\": 26,\n        \"name\": \"BOLLORÉ\"\n    },\n    {\n        \"id\": 27,\n        \"name\": \"BOLWELL\"\n    },\n    {\n        \"id\": 28,\n        \"name\": \"BRILLIANCE / HUACHEN\"\n    },\n    {\n        \"id\": 29,\n        \"name\": \"BRISTOL\"\n    },\n    {\n        \"id\": 30,\n        \"name\": \"BRITISH LEYLAND\"\n    },\n    {\n        \"id\": 31,\n        \"name\": \"BRM BUGGY\"\n    },\n    {\n        \"id\": 32,\n        \"name\": \"BROOKE\"\n    },\n    {\n        \"id\": 33,\n        \"name\": \"BUDDY\"\n    },\n    {\n        \"id\": 34,\n        \"name\": \"BUFORI\"\n    },\n    {\n        \"id\": 35,\n        \"name\": \"BUGATTI\"\n    },\n    {\n        \"id\": 36,\n        \"name\": \"BUICK\"\n    },\n    {\n        \"id\": 37,\n        \"name\": \"BYD\"\n    },\n    {\n        \"id\": 38,\n        \"name\": \"CADILLAC\"\n    },\n    {\n        \"id\": 39,\n        \"name\": \"CAPARO\"\n    },\n    {\n        \"id\": 40,\n        \"name\": \"CARBONTECH\"\n    },\n    {\n        \"id\": 41,\n        \"name\": \"CARICE\"\n    },\n    {\n        \"id\": 42,\n        \"name\": \"CHANG'AN\"\n    },\n    {\n        \"id\": 43,\n        \"name\": \"CHANGHE\"\n    },\n    {\n        \"id\": 44,\n        \"name\": \"CHERY\"\n    },\n    {\n        \"id\": 45,\n        \"name\": \"CHEVROLET\"\n    },\n    {\n        \"id\": 46,\n        \"name\": \"CHEVRON\"\n    },\n    {\n        \"id\": 47,\n        \"name\": \"CITROËN\"\n    },\n    {\n        \"id\": 48,\n        \"name\": \"CHRYSLER\"\n    },\n    {\n        \"id\": 49,\n        \"name\": \"COMMUTER CARS\"\n    },\n    {\n        \"id\": 50,\n        \"name\": \"CONNAUGHT\"\n    },\n    {\n        \"id\": 51,\n        \"name\": \"COVINI\"\n    },\n    {\n        \"id\": 52,\n        \"name\": \"DACIA\"\n    },\n    {\n        \"id\": 53,\n        \"name\": \"DAIHATSU\"\n    },\n    {\n        \"id\": 54,\n        \"name\": \"DATSUN\"\n    },\n    {\n        \"id\": 55,\n        \"name\": \"DE LA CHAPELLE\"\n    },\n    {\n        \"id\": 56,\n        \"name\": \"DMC\"\n    },\n    {\n        \"id\": 57,\n        \"name\": \"DIARDI\"\n    },\n    {\n        \"id\": 58,\n        \"name\": \"DODGE\"\n    },\n    {\n        \"id\": 59,\n        \"name\": \"DONKERVOORT\"\n    },\n    {\n        \"id\": 60,\n        \"name\": \"DONGFENG\"\n    },\n    {\n        \"id\": 61,\n        \"name\": \"DONTO\"\n    },\n    {\n        \"id\": 62,\n        \"name\": \"DS AUTOMOBILES\"\n    },\n    {\n        \"id\": 63,\n        \"name\": \"DYNASTI ELECTRIC CAR CORP.\"\n    },\n    {\n        \"id\": 64,\n        \"name\": \"E-VADE\"\n    },\n    {\n        \"id\": 65,\n        \"name\": \"EFFEDI\"\n    },\n    {\n        \"id\": 66,\n        \"name\": \"EGY-TECH ENGINEERING\"\n    },\n    {\n        \"id\": 67,\n        \"name\": \"ELECTRIC RACEABOUT\"\n    },\n    {\n        \"id\": 68,\n        \"name\": \"ELFIN\"\n    },\n    {\n        \"id\": 69,\n        \"name\": \"EMGRAND\"\n    },\n    {\n        \"id\": 70,\n        \"name\": \"ENGLON\"\n    },\n    {\n        \"id\": 71,\n        \"name\": \"ETERNITI\"\n    },\n    {\n        \"id\": 72,\n        \"name\": \"ETOX\"\n    },\n    {\n        \"id\": 73,\n        \"name\": \"EQUUS\"\n    },\n    {\n        \"id\": 74,\n        \"name\": \"EXAGON\"\n    },\n    {\n        \"id\": 75,\n        \"name\": \"FARALLI & MAZZANTI\"\n    },\n    {\n        \"id\": 76,\n        \"name\": \"FAW\"\n    },\n    {\n        \"id\": 77,\n        \"name\": \"FERRARI\"\n    },\n    {\n        \"id\": 78,\n        \"name\": \"FIAT\"\n    },\n    {\n        \"id\": 79,\n        \"name\": \"FISKER\"\n    },\n    {\n        \"id\": 80,\n        \"name\": \"FODAY\"\n    },\n    {\n        \"id\": 81,\n        \"name\": \"FORCE\"\n    },\n    {\n        \"id\": 82,\n        \"name\": \"FORD\"\n    },\n    {\n        \"id\": 83,\n        \"name\": \"FORD AUSTRALIA\"\n    },\n    {\n        \"id\": 84,\n        \"name\": \"FORD GERMANY\"\n    },\n    {\n        \"id\": 85,\n        \"name\": \"FORNASARI\"\n    },\n    {\n        \"id\": 86,\n        \"name\": \"FRASER\"\n    },\n    {\n        \"id\": 87,\n        \"name\": \"GAC GROUP\"\n    },\n    {\n        \"id\": 88,\n        \"name\": \"GALPIN\"\n    },\n    {\n        \"id\": 89,\n        \"name\": \"GEELY\"\n    },\n    {\n        \"id\": 90,\n        \"name\": \"GENESIS\"\n    },\n    {\n        \"id\": 91,\n        \"name\": \"GIBBS\"\n    },\n    {\n        \"id\": 92,\n        \"name\": \"GILLET\"\n    },\n    {\n        \"id\": 93,\n        \"name\": \"GINETTA\"\n    },\n    {\n        \"id\": 94,\n        \"name\": \"GMC\"\n    },\n    {\n        \"id\": 95,\n        \"name\": \"GONOW\"\n    },\n    {\n        \"id\": 96,\n        \"name\": \"GREAT WALL / CHANGCHENG\"\n    },\n    {\n        \"id\": 97,\n        \"name\": \"GREENTECH AUTOMOTIVE\"\n    },\n    {\n        \"id\": 98,\n        \"name\": \"GRINNALL\"\n    },\n    {\n        \"id\": 99,\n        \"name\": \"GTA MOTOR\"\n    },\n    {\n        \"id\": 100,\n        \"name\": \"GUMPERT\"\n    },\n    {\n        \"id\": 101,\n        \"name\": \"GURGEL\"\n    },\n    {\n        \"id\": 102,\n        \"name\": \"HENNESSEY\"\n    },\n    {\n        \"id\": 103,\n        \"name\": \"HINDUSTAN\"\n    },\n    {\n        \"id\": 104,\n        \"name\": \"HOLDEN\"\n    },\n    {\n        \"id\": 105,\n        \"name\": \"HONDA\"\n    },\n    {\n        \"id\": 106,\n        \"name\": \"HONGQI\"\n    },\n    {\n        \"id\": 107,\n        \"name\": \"HRADYESH\"\n    },\n    {\n        \"id\": 108,\n        \"name\": \"HTT TECHNOLOGIES\"\n    },\n    {\n        \"id\": 109,\n        \"name\": \"HULME\"\n    },\n    {\n        \"id\": 110,\n        \"name\": \"HYUNDAI\"\n    },\n    {\n        \"id\": 111,\n        \"name\": \"ICML\"\n    },\n    {\n        \"id\": 112,\n        \"name\": \"IFR\"\n    },\n    {\n        \"id\": 113,\n        \"name\": \"IRAN KHODRO\"\n    },\n    {\n        \"id\": 114,\n        \"name\": \"IKCO\"\n    },\n    {\n        \"id\": 115,\n        \"name\": \"IMPERIA\"\n    },\n    {\n        \"id\": 116,\n        \"name\": \"INFINITI\"\n    },\n    {\n        \"id\": 117,\n        \"name\": \"IVM\"\n    },\n    {\n        \"id\": 118,\n        \"name\": \"INVICTA\"\n    },\n    {\n        \"id\": 119,\n        \"name\": \"ISDERA\"\n    },\n    {\n        \"id\": 120,\n        \"name\": \"ISUZU\"\n    },\n    {\n        \"id\": 121,\n        \"name\": \"JAC\"\n    },\n    {\n        \"id\": 122,\n        \"name\": \"JAGUAR\"\n    },\n    {\n        \"id\": 123,\n        \"name\": \"JEEP\"\n    },\n    {\n        \"id\": 124,\n        \"name\": \"JENSEN MOTORS\"\n    },\n    {\n        \"id\": 125,\n        \"name\": \"JETCAR\"\n    },\n    {\n        \"id\": 126,\n        \"name\": \"JONWAY\"\n    },\n    {\n        \"id\": 127,\n        \"name\": \"JOSS\"\n    },\n    {\n        \"id\": 128,\n        \"name\": \"KAIPAN\"\n    },\n    {\n        \"id\": 129,\n        \"name\": \"KANTANKA\"\n    },\n    {\n        \"id\": 130,\n        \"name\": \"KARMA\"\n    },\n    {\n        \"id\": 131,\n        \"name\": \"KOENIGSEGG\"\n    },\n    {\n        \"id\": 132,\n        \"name\": \"KORRES\"\n    },\n    {\n        \"id\": 133,\n        \"name\": \"KIA\"\n    },\n    {\n        \"id\": 134,\n        \"name\": \"KIAT\"\n    },\n    {\n        \"id\": 135,\n        \"name\": \"KISH KHODRO\"\n    },\n    {\n        \"id\": 136,\n        \"name\": \"KTM\"\n    },\n    {\n        \"id\": 137,\n        \"name\": \"LADA\"\n    },\n    {\n        \"id\": 138,\n        \"name\": \"LAMBORGHINI\"\n    },\n    {\n        \"id\": 139,\n        \"name\": \"LANCIA\"\n    },\n    {\n        \"id\": 140,\n        \"name\": \"LAND ROVER\"\n    },\n    {\n        \"id\": 141,\n        \"name\": \"LANDWIND\"\n    },\n    {\n        \"id\": 142,\n        \"name\": \"LARAKI\"\n    },\n    {\n        \"id\": 143,\n        \"name\": \"LEBLANC\"\n    },\n    {\n        \"id\": 144,\n        \"name\": \"LEITCH\"\n    },\n    {\n        \"id\": 145,\n        \"name\": \"LEOPARD\"\n    },\n    {\n        \"id\": 146,\n        \"name\": \"LEXUS\"\n    },\n    {\n        \"id\": 147,\n        \"name\": \"LI-ION\"\n    },\n    {\n        \"id\": 148,\n        \"name\": \"LIFAN\"\n    },\n    {\n        \"id\": 149,\n        \"name\": \"LIGHTNING\"\n    },\n    {\n        \"id\": 150,\n        \"name\": \"LINCOLN\"\n    },\n    {\n        \"id\": 151,\n        \"name\": \"LISTER\"\n    },\n    {\n        \"id\": 152,\n        \"name\": \"LOCAL MOTORS\"\n    },\n    {\n        \"id\": 153,\n        \"name\": \"LOBINI\"\n    },\n    {\n        \"id\": 154,\n        \"name\": \"LOTEC\"\n    },\n    {\n        \"id\": 155,\n        \"name\": \"LOTUS CARS\"\n    },\n    {\n        \"id\": 156,\n        \"name\": \"LUCRA CARS\"\n    },\n    {\n        \"id\": 157,\n        \"name\": \"LUXGEN\"\n    },\n    {\n        \"id\": 158,\n        \"name\": \"MAHINDRA\"\n    },\n    {\n        \"id\": 159,\n        \"name\": \"MARUSSIA\"\n    },\n    {\n        \"id\": 160,\n        \"name\": \"MARUTI SUZUKI\"\n    },\n    {\n        \"id\": 161,\n        \"name\": \"MASERATI\"\n    },\n    {\n        \"id\": 162,\n        \"name\": \"MASTRETTA\"\n    },\n    {\n        \"id\": 163,\n        \"name\": \"MAZDA\"\n    },\n    {\n        \"id\": 164,\n        \"name\": \"MCLAREN\"\n    },\n    {\n        \"id\": 165,\n        \"name\": \"MERCEDES-BENZ\"\n    },\n    {\n        \"id\": 166,\n        \"name\": \"MG\"\n    },\n    {\n        \"id\": 167,\n        \"name\": \"MICRO\"\n    },\n    {\n        \"id\": 168,\n        \"name\": \"MINI\"\n    },\n    {\n        \"id\": 169,\n        \"name\": \"MITSUBISHI\"\n    },\n    {\n        \"id\": 170,\n        \"name\": \"MITSUOKA\"\n    },\n    {\n        \"id\": 171,\n        \"name\": \"MORGAN\"\n    },\n    {\n        \"id\": 172,\n        \"name\": \"MULLEN\"\n    },\n    {\n        \"id\": 173,\n        \"name\": \"MYCAR\"\n    },\n    {\n        \"id\": 174,\n        \"name\": \"MYVI-PERODUA\"\n    },\n    {\n        \"id\": 175,\n        \"name\": \"NISSAN\"\n    },\n    {\n        \"id\": 176,\n        \"name\": \"NOBLE\"\n    },\n    {\n        \"id\": 177,\n        \"name\": \"NOTA\"\n    },\n    {\n        \"id\": 178,\n        \"name\": \"OLDSMOBILE\"\n    },\n    {\n        \"id\": 179,\n        \"name\": \"OPEL\"\n    },\n    {\n        \"id\": 180,\n        \"name\": \"OPTIMAL ENERGY\"\n    },\n    {\n        \"id\": 181,\n        \"name\": \"ORCA\"\n    },\n    {\n        \"id\": 182,\n        \"name\": \"OLTCIT\"\n    },\n    {\n        \"id\": 183,\n        \"name\": \"PAGANI\"\n    },\n    {\n        \"id\": 184,\n        \"name\": \"PANHARD\"\n    },\n    {\n        \"id\": 185,\n        \"name\": \"PANOZ\"\n    },\n    {\n        \"id\": 186,\n        \"name\": \"PERANA\"\n    },\n    {\n        \"id\": 187,\n        \"name\": \"PERODUA\"\n    },\n    {\n        \"id\": 188,\n        \"name\": \"PEUGEOT\"\n    },\n    {\n        \"id\": 189,\n        \"name\": \"P.G.O.\"\n    },\n    {\n        \"id\": 190,\n        \"name\": \"POLARSUN\"\n    },\n    {\n        \"id\": 191,\n        \"name\": \"PLYMOUTH\"\n    },\n    {\n        \"id\": 192,\n        \"name\": \"PORSCHE\"\n    },\n    {\n        \"id\": 193,\n        \"name\": \"PROTO\"\n    },\n    {\n        \"id\": 194,\n        \"name\": \"OULLIM\"\n    },\n    {\n        \"id\": 195,\n        \"name\": \"PROTON\"\n    },\n    {\n        \"id\": 196,\n        \"name\": \"PURITALIA\"\n    },\n    {\n        \"id\": 197,\n        \"name\": \"QOROS\"\n    },\n    {\n        \"id\": 198,\n        \"name\": \"QVALE\"\n    },\n    {\n        \"id\": 199,\n        \"name\": \"RADICAL\"\n    },\n    {\n        \"id\": 200,\n        \"name\": \"RELIANT\"\n    },\n    {\n        \"id\": 201,\n        \"name\": \"RENAULT\"\n    },\n    {\n        \"id\": 202,\n        \"name\": \"REVA\"\n    },\n    {\n        \"id\": 203,\n        \"name\": \"RIMAC\"\n    },\n    {\n        \"id\": 204,\n        \"name\": \"RINSPEED\"\n    },\n    {\n        \"id\": 205,\n        \"name\": \"RODING\"\n    },\n    {\n        \"id\": 206,\n        \"name\": \"ROEWE\"\n    },\n    {\n        \"id\": 207,\n        \"name\": \"ROLLS-ROYCE\"\n    },\n    {\n        \"id\": 208,\n        \"name\": \"ROSSIN-BERTIN\"\n    },\n    {\n        \"id\": 209,\n        \"name\": \"ROSSION\"\n    },\n    {\n        \"id\": 210,\n        \"name\": \"ROVER\"\n    },\n    {\n        \"id\": 211,\n        \"name\": \"SAAB\"\n    },\n    {\n        \"id\": 212,\n        \"name\": \"SALEEN\"\n    },\n    {\n        \"id\": 213,\n        \"name\": \"SAIC-GM-WULING\"\n    },\n    {\n        \"id\": 214,\n        \"name\": \"SAIPA\"\n    },\n    {\n        \"id\": 215,\n        \"name\": \"SAKER\"\n    },\n    {\n        \"id\": 216,\n        \"name\": \"SAMSUNG\"\n    },\n    {\n        \"id\": 217,\n        \"name\": \"SAN\"\n    },\n    {\n        \"id\": 218,\n        \"name\": \"SBARRO\"\n    },\n    {\n        \"id\": 219,\n        \"name\": \"SCION\"\n    },\n    {\n        \"id\": 220,\n        \"name\": \"SEAT\"\n    },\n    {\n        \"id\": 221,\n        \"name\": \"SHANGHAI MAPLE\"\n    },\n    {\n        \"id\": 222,\n        \"name\": \"SIN\"\n    },\n    {\n        \"id\": 223,\n        \"name\": \"ŠKODA\"\n    },\n    {\n        \"id\": 224,\n        \"name\": \"SMART\"\n    },\n    {\n        \"id\": 225,\n        \"name\": \"SPADA VETTURE SPORT\"\n    },\n    {\n        \"id\": 226,\n        \"name\": \"SPYKER\"\n    },\n    {\n        \"id\": 227,\n        \"name\": \"SSANGYONG\"\n    },\n    {\n        \"id\": 228,\n        \"name\": \"SSC NORTH AMERICA\"\n    },\n    {\n        \"id\": 229,\n        \"name\": \"STREET & RACING TECHNOLOGY\"\n    },\n    {\n        \"id\": 230,\n        \"name\": \"SUBARU\"\n    },\n    {\n        \"id\": 231,\n        \"name\": \"SUZUKI\"\n    },\n    {\n        \"id\": 232,\n        \"name\": \"TANOM\"\n    },\n    {\n        \"id\": 233,\n        \"name\": \"TATA\"\n    },\n    {\n        \"id\": 234,\n        \"name\": \"TAURO\"\n    },\n    {\n        \"id\": 235,\n        \"name\": \"TAWON CAR\"\n    },\n    {\n        \"id\": 236,\n        \"name\": \"TD CARS\"\n    },\n    {\n        \"id\": 237,\n        \"name\": \"TESLA\"\n    },\n    {\n        \"id\": 238,\n        \"name\": \"THAI RUNG\"\n    },\n    {\n        \"id\": 239,\n        \"name\": \"TOYOTA\"\n    },\n    {\n        \"id\": 240,\n        \"name\": \"TREKKA\"\n    },\n    {\n        \"id\": 241,\n        \"name\": \"TRIDENT\"\n    },\n    {\n        \"id\": 242,\n        \"name\": \"TRIUMPH\"\n    },\n    {\n        \"id\": 243,\n        \"name\": \"TROLLER\"\n    },\n    {\n        \"id\": 244,\n        \"name\": \"TRUMPCHI\"\n    },\n    {\n        \"id\": 245,\n        \"name\": \"TUSHEK\"\n    },\n    {\n        \"id\": 246,\n        \"name\": \"TVR\"\n    },\n    {\n        \"id\": 247,\n        \"name\": \"TVS\"\n    },\n    {\n        \"id\": 248,\n        \"name\": \"ULTIMA\"\n    },\n    {\n        \"id\": 249,\n        \"name\": \"UMM\"\n    },\n    {\n        \"id\": 250,\n        \"name\": \"UEV\"\n    },\n    {\n        \"id\": 251,\n        \"name\": \"URI\"\n    },\n    {\n        \"id\": 252,\n        \"name\": \"UAZ\"\n    },\n    {\n        \"id\": 253,\n        \"name\": \"VAUXHALL MOTORS\"\n    },\n    {\n        \"id\": 254,\n        \"name\": \"VECTOR\"\n    },\n    {\n        \"id\": 255,\n        \"name\": \"VENCER\"\n    },\n    {\n        \"id\": 256,\n        \"name\": \"VENIRAUTO\"\n    },\n    {\n        \"id\": 257,\n        \"name\": \"VENTURI\"\n    },\n    {\n        \"id\": 258,\n        \"name\": \"VEPR\"\n    },\n    {\n        \"id\": 259,\n        \"name\": \"VOLKSWAGEN\"\n    },\n    {\n        \"id\": 260,\n        \"name\": \"VOLVO\"\n    },\n    {\n        \"id\": 261,\n        \"name\": \"VINFAST\"\n    },\n    {\n        \"id\": 262,\n        \"name\": \"W MOTORS\"\n    },\n    {\n        \"id\": 263,\n        \"name\": \"WALLYSCAR\"\n    },\n    {\n        \"id\": 264,\n        \"name\": \"WESTFIELD\"\n    },\n    {\n        \"id\": 265,\n        \"name\": \"WHEEGO\"\n    },\n    {\n        \"id\": 266,\n        \"name\": \"WIESMANN\"\n    },\n    {\n        \"id\": 267,\n        \"name\": \"XENIA\"\n    },\n    {\n        \"id\": 268,\n        \"name\": \"YES!\"\n    },\n    {\n        \"id\": 269,\n        \"name\": \"YOUABIAN PUMA\"\n    },\n    {\n        \"id\": 270,\n        \"name\": \"ZASTAVA AUTOMOBILES\"\n    },\n    {\n        \"id\": 271,\n        \"name\": \"ZENDER CARS\"\n    },\n    {\n        \"id\": 272,\n        \"name\": \"ZENOS CARS\"\n    },\n    {\n        \"id\": 273,\n        \"name\": \"ZENVO\"\n    },\n    {\n        \"id\": 274,\n        \"name\": \"ZIL\"\n    },\n    {\n        \"id\": 275,\n        \"name\": \"ZX AUTO\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "get_makeName",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiTVFHMDVBUk1GWTVJTkIzTk1VUjAiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNiAxOToxNzozMSJ9.Hxly9xVhzHREDC01b56uPae6604t4v2p60F73-dMzew"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}make/get_makeName/5"
+          },
+          "response": [
+            {
+              "name": "{{url}}make/get_makeName/5",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{url}}make/get_makeName/5"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Aug 2024 16:34:49 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "20"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 5,\n    \"name\": \"AC\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "add_make",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiOVE1UzhQMk1WU0VOMFlTTEtFU0oiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNyAwMjoxNjoyMiJ9.Cl9sv3yYEwvEhfhx497CIYDv2Qj4Du1QLfIvTgItc-o"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n    {\r\n        \"name\":\"bbcc\"\r\n    }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}make/add_make"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "model",
+      "item": [
+        {
+          "name": "get_modelist_by_MakeId",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Successful POST request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiOVE1UzhQMk1WU0VOMFlTTEtFU0oiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNyAwMjoxNjoyMiJ9.Cl9sv3yYEwvEhfhx497CIYDv2Qj4Du1QLfIvTgItc-o"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"date\": \"01-04-2024\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}model/get_models_by_make_id/1700",
+            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": [
+            {
+              "name": "get_modelist_by_id",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{url}}model/get_modelist_by_makeId/5"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Aug 2024 17:09:34 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "51"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"name\": \"xyz\",\n        \"make\": {\n            \"id\": 5,\n            \"name\": \"AC\"\n        }\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "get_modelName",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiOVE1UzhQMk1WU0VOMFlTTEtFU0oiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNyAwMjoxNjoyMiJ9.Cl9sv3yYEwvEhfhx497CIYDv2Qj4Du1QLfIvTgItc-o"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}model/get_model_name/3"
+          },
+          "response": [
+            {
+              "name": "get_modelName",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{url}}model/get_modelName/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Aug 2024 17:11:13 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "49"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"name\": \"xyz\",\n    \"make\": {\n        \"id\": 5,\n        \"name\": \"AC\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "add_models",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiOVE1UzhQMk1WU0VOMFlTTEtFU0oiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNyAwMjoxNjoyMiJ9.Cl9sv3yYEwvEhfhx497CIYDv2Qj4Du1QLfIvTgItc-o"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\r\n    \"name\":\"abcdd\",\r\n    \"make_id\":1700\r\n}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}model/add_model"
+          },
+          "response": [
+            {
+              "name": "add_models",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[{\r\n    \"name\":\"xyzz\",\r\n    \"make_id\":5\r\n}]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": "{{url}}make/add_make"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Aug 2024 17:47:10 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "77"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"detail\": {\n        \"state\": true,\n        \"error\": \"No Error.\",\n        \"message\": \"added successfully.\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "engine",
+      "item": [
+        {
+          "name": "get_engines_by_model_id",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Successful POST request\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiOVE1UzhQMk1WU0VOMFlTTEtFU0oiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNyAwMjoxNjoyMiJ9.Cl9sv3yYEwvEhfhx497CIYDv2Qj4Du1QLfIvTgItc-o"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"date\": \"01-04-2024\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}engine/get_engines_by_model_id/9",
+            "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": [
+            {
+              "name": "get_enginelist_by_modeld",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{url}}engine/get_enginelist_by_modeId/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Aug 2024 17:50:54 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "81"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"name\": \"xyz\",\n        \"model\": {\n            \"id\": 1,\n            \"name\": \"xyz\",\n            \"make\": {\n                \"id\": 5,\n                \"name\": \"AC\"\n            }\n        }\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "get_engine_name",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiOVE1UzhQMk1WU0VOMFlTTEtFU0oiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNyAwMjoxNjoyMiJ9.Cl9sv3yYEwvEhfhx497CIYDv2Qj4Du1QLfIvTgItc-o"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}engine/get_engine_name/70"
+          },
+          "response": [
+            {
+              "name": "get_engineName",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": "{{url}}engine/get_EngineName/1"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "date",
+                  "value": "Tue, 06 Aug 2024 17:51:57 GMT"
+                },
+                {
+                  "key": "server",
+                  "value": "uvicorn"
+                },
+                {
+                  "key": "content-length",
+                  "value": "79"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"name\": \"xyz\",\n    \"model\": {\n        \"id\": 1,\n        \"name\": \"xyz\",\n        \"make\": {\n            \"id\": 5,\n            \"name\": \"AC\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "add_engines",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQwLCJyYW5kb21fc3RyIjoiOVE1UzhQMk1WU0VOMFlTTEtFU0oiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wNyAwMjoxNjoyMiJ9.Cl9sv3yYEwvEhfhx497CIYDv2Qj4Du1QLfIvTgItc-o"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[{\r\n    \"name\":\"lolo5555\",\r\n    \"model_id\":1\r\n}]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}engine/add_engine"
           },
           "response": []
         }
@@ -1546,13 +1835,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInJhbmRvbV9zdHIiOiJSMVpISU42S1RNN0c1RVlIRDFDUCIsImxvZ2luX3RpbWUiOiIyMDI0LTA0LTA3IDAxOjE4OjMxIn0.qK2iOTZLZB-aYoesUxeLDXp47ukY3MhN8WvHaHb62ZI",
-                  "type": "string"
-                }
-              ]
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDAsInJhbmRvbV9zdHIiOiJSMVpISU42S1RNN0c1RVlIRDFDUCIsImxvZ2luX3RpbWUiOiIyMDI0LTA0LTA3IDAxOjE4OjMxIn0.qK2iOTZLZB-aYoesUxeLDXp47ukY3MhN8WvHaHb62ZI"
+              }
             },
             "method": "GET",
             "header": [],
@@ -1565,12 +1850,115 @@
                 }
               }
             },
-            "url": {
-              "raw": "{{url}}statistics/get_appointment_statistics",
-              "host": ["{{url}}statistics"],
-              "path": ["get_appointment_statistics"]
-            },
+            "url": "{{url}}statistics/get_appointment_statistics",
             "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "offer",
+      "item": [
+        {
+          "name": "add_offer",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY0LCJyYW5kb21fc3RyIjoiMDNRREFBSkdUVk9UNjVBS1gyS1MiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wOCAxMzozNTo0MSJ9.ueVe6gf9DfBgfNPCIuUTdv9ITsUGF2MXLfFRX6bDdJA"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"hello offer\",\r\n    \"description\": \"hello\",\r\n    \"value\": \"50%\",\r\n    \"type\": \"offer\",\r\n    \"service_ids\": [1,3]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}offer"
+          },
+          "response": []
+        },
+        {
+          "name": "get_offers",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY0LCJyYW5kb21fc3RyIjoiMDNRREFBSkdUVk9UNjVBS1gyS1MiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wOCAxMzozNTo0MSJ9.ueVe6gf9DfBgfNPCIuUTdv9ITsUGF2MXLfFRX6bDdJA"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"hello offer\",\r\n    \"description\": \"hello\",\r\n    \"value\": \"50%\",\r\n    \"type\": \"offer\",\r\n    \"service_ids\": [1,3]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}offer"
+          },
+          "response": []
+        },
+        {
+          "name": "get_offer",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY0LCJyYW5kb21fc3RyIjoiMDNRREFBSkdUVk9UNjVBS1gyS1MiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wOCAxMzozNTo0MSJ9.ueVe6gf9DfBgfNPCIuUTdv9ITsUGF2MXLfFRX6bDdJA"
+              }
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"hello offer\",\r\n    \"description\": \"hello\",\r\n    \"value\": \"50%\",\r\n    \"type\": \"offer\",\r\n    \"service_ids\": [1,3]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}offer/4"
+          },
+          "response": []
+        },
+        {
+          "name": "delete_offer",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTY0LCJyYW5kb21fc3RyIjoiMDNRREFBSkdUVk9UNjVBS1gyS1MiLCJsb2dpbl90aW1lIjoiMjAyNC0wOC0wOCAxMzozNTo0MSJ9.ueVe6gf9DfBgfNPCIuUTdv9ITsUGF2MXLfFRX6bDdJA"
+              }
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"hello offer\",\r\n    \"description\": \"hello\",\r\n    \"value\": \"50%\",\r\n    \"type\": \"offer\",\r\n    \"service_ids\": [1,3]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "{{url}}offer/4"
           },
           "response": []
         }
@@ -1582,14 +1970,18 @@
       "listen": "prerequest",
       "script": {
         "type": "text/javascript",
-        "exec": [""]
+        "exec": [
+          ""
+        ]
       }
     },
     {
       "listen": "test",
       "script": {
         "type": "text/javascript",
-        "exec": [""]
+        "exec": [
+          ""
+        ]
       }
     }
   ],

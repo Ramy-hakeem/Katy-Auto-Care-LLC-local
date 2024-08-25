@@ -3,7 +3,7 @@ import BackArrowIcon from "../../assets/BackArrowIcon";
 import ForwordArrowIcon from "../../assets/ForwordArrowIcon";
 import PropTypes from "prop-types";
 
-function Carousel({ cards, arrowIsUnder }) {
+function Carousel({ children = [], arrowIsUnder }) {
   const [leftArrowColor, setLeftArrowColor] = useState("#F80606");
   const [rightArrowColor, setRightArrowColor] = useState("#F80606");
   const scrollRef = useRef(null);
@@ -14,7 +14,7 @@ function Carousel({ cards, arrowIsUnder }) {
     }
   }, []);
 
-  const data = Array(12).fill(cards);
+  const data = [...children, ...children];
   const totalWidth = scrollRef?.current?.scrollWidth;
   const cardWidth = Math.ceil(totalWidth / data.length);
   const cardsPerScreen = 3;
@@ -100,7 +100,7 @@ function Carousel({ cards, arrowIsUnder }) {
 }
 
 Carousel.propTypes = {
-  cards: PropTypes.element.isRequired,
+  children: PropTypes.element,
   arrowIsUnder: PropTypes.bool,
 };
 

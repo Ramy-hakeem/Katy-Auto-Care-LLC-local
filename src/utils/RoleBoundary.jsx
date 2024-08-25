@@ -3,9 +3,9 @@ import Home from "../pages/guest/Home";
 import useAuth from "../hooks/useAuth";
 
 function RoleBoundry({ children, page }) {
-  const { isAuthenticated } = useAuth();
+  const { state } = useAuth();
 
-  if (isAuthenticated) {
+  if (state) {
     if (page.afterAuth) {
       return <>{children}</>;
     } else {

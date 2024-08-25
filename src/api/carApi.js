@@ -5,14 +5,16 @@ const carApi = baseAPI.injectEndpoints({
     addCar: builder.mutation({
       query: (body) => {
         return {
-          url: "",
-          method: "",
+          url: "/car/add_car",
+          method: "POST",
           body: body,
         };
       },
     }),
-  }),
-});
 
+  }),
+
+  overrideExisting: false,
+});
 export const { useAddCarMutation } = carApi;
 export default carApi;

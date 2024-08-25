@@ -8,7 +8,12 @@ function OffersSection() {
     return (
         <div className="px-5 flex flex-col items-center justify-center gap-10 my-20 w-full  ">
             <SectionTitle maintext="Our Latest Offers" />
-            <Carousel cards={<OfferCard />} />
+            <Carousel >
+                <OfferCard />
+                <OfferCard />
+                <OfferCard />
+                <OfferCard />
+            </Carousel>
             <Link to="offers">
                 <Button className="bg-pumpkin normal-case flex justify-center items-center
                  

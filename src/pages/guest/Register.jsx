@@ -69,7 +69,7 @@ function Register() {
   const initialValues = {
     fname: "",
     lname: "",
-    email: "",
+    email: null,
     phone_number_one: "",
     phone_number_two: "",
     state: "",
@@ -84,8 +84,9 @@ function Register() {
     lname: yup.string().required("required field"),
     email: yup
       .string()
+      .required("required field")
       .email("Invalid email format")
-      .required("required field"),
+    ,
     phone_number_one: yup.string().required("required field"),
     phone_number_two: yup.string(),
     state: yup.string().required("required field"),
@@ -123,6 +124,12 @@ function Register() {
     delete accountData.fname;
     delete accountData.lname;
     delete accountData.password2;
+    if (accountData.email == "" || !accountData.email) {
+      delete accountData.email
+    }
+    if (accountData.phone_number_two == "" || !accountData.phone_number_two) {
+      delete accountData.phone_number_two
+    }
 
     try {
       const res = await createNewAccount(accountData);
@@ -141,7 +148,7 @@ function Register() {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className="pt-10 sm:pt-10 md:pt-16 lg:pt-28
+      className="
                 flex flex-col lg:flex-row
                 h-auto lg:h-screen
                 w-full
@@ -286,11 +293,12 @@ function Register() {
           </Button>
         </div>
         {isError && (
-          <p className="text-red-500 mt-4">
-            {error?.data?.detail[0]?.msg ||
-              error?.data?.detail?.message ||
-              "An error occurred"}
-          </p>
+          <div className='text-[#FF0000] text-right mr-2 text-2xl'>
+            {error?.data?.detail[0]?.msg || error?.data?.detail?.message ||
+              error?.error ||
+              "An error occurred"
+            }
+          </div>
         )}
         <p className="text-wrap text-center !text-sm sm:!text-lg xl:!text-2xl mt-2">
           Already have an account? &nbsp;

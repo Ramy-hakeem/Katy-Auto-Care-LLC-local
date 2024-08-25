@@ -7,9 +7,92 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import SelectInput from "../../components/ui/SelectInput";
 import { useAddCarMutation } from "../../api/carApi";
+import { useState } from 'react';
 
 function AddCar() {
-  const [addCar, { isLoading, isError, message }] = useAddCarMutation();
+  const [addCar, { isLoading, isError, error }] = useAddCarMutation();
+  const [numberOfForms, setNumberOfForms] = useState(1)
+
+  const onSubmit = async (values) => {
+    console.log(values)
+    const data = [{
+      "mileage": 122978,
+      "year": "2013",
+      "vin": "WBAFR7C5XDc817560",
+      "license_plate": "sharplll-r",
+      "make_id": "5",
+      "model_id": "1",
+      "engine_id": "1",
+      "color_id": "4"
+    }]
+    const res = await addCar(data);
+    console.log("hhhhhhh", isError && error, res)
+  };
+
+
+
+  return (
+    <form
+      className="
+                flex flex-col lg:flex-row 
+                h-auto lg:h-screen 
+                w-full
+            "
+    >
+      <img
+        src={addCarBanner}
+        alt=""
+        className="lg:w-6/12 w-full h-[70vh] lg:h-full object-cover "
+      />
+      <div className="lg:w-6/12 w-full flex flex-col items-center justify-center my-5 lg:my-20">
+        <div className="w-11/12 mb-10">
+          <SectionTitle
+            maintext="add&nbsp;"
+            spantext={"your car"}
+            hideImg={true}
+            textClassName={"!text-lg sm:!text-3xl lg:!text-3xl xl:!text-4xl  "}
+          />
+
+          <Description
+            className={
+              "text-wrap text-center !text-sm sm:!text-lg xl:!text-2xl  "
+            }
+            text="Enter your vehicle details to get started!"
+          />
+        </div>
+        <div className="w-10/12 flex flex-col overflow-y-auto form-scroll bg-scroll">
+          {Array.from({ length: numberOfForms }, () => (<AddCarForm />))}
+        </div>
+
+        <p className="my-5 text-right pr-2 text-xl cursor-pointer " onClick={() => setNumberOfForms(prev => prev + 1)}>+ Add New Car</p>
+
+        <Button
+          type="submit"
+          className="w-6/12 normal-case
+                        min-h-3 sm:min-h-12 xl:min-h-20
+                        text-sm sm:text-2xl xl:text-3xl
+                    "
+        >
+          {isLoading ? "Loading..." : "Submit"}
+        </Button>
+        {isError && (
+          <div className='text-[#FF0000] text-right mr-2 text-2xl'>
+            {error?.data?.detail[0]?.msg || error?.data?.detail?.message ||
+              error?.error ||
+              "An error occurred"
+            }
+          </div>
+        )}      </div>
+    </form>
+  );
+}
+
+export default AddCar;
+
+
+
+const AddCarForm = () => {
+
   const makes = [
     {
       brand: "Seat",
@@ -2026,7 +2109,7 @@ function AddCar() {
   };
   const years = Array.from(
     { length: 100 },
-    (ele, i) => new Date().getFullYear() - i
+    (_, i) => new Date().getFullYear() - i
   );
   const engineTypes = [
     "Inline 4",
@@ -2221,6 +2304,7 @@ function AddCar() {
     license_plate: "",
     engine_type: "",
     color_id: "",
+    car_inspection: ""
   };
   const validationSchema = yup.object().shape({
     make_id: yup.string().required("Make is required"),
@@ -2241,161 +2325,119 @@ function AddCar() {
     license_plate: yup.string().required("License plate is required"),
     //color_id: yup.string().required("Color is required"),
     engine_type: yup.string().required("Engine type is required"),
+    car_inspection: yup.string()
   });
-
-  const onSubmit = async (values) => {
-    await addCar(values);
-  };
-
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit,
   });
-
   return (
-    <form
-      onSubmit={formik.handleSubmit}
-      className="pt-10 sm:pt-10 md:pt-16 lg:pt-28
-                flex flex-col lg:flex-row 
-                h-auto lg:h-screen 
-                w-full
-            "
-    >
-      <img
-        src={addCarBanner}
-        alt=""
-        className="lg:w-6/12 w-full h-[70vh] lg:h-full object-cover "
-      />
-      <div className="lg:w-6/12 w-full flex flex-col items-center justify-center my-5 lg:my-20">
-        <div className="w-11/12 mb-10">
-          <SectionTitle
-            maintext="add&nbsp;"
-            spantext={"your car"}
-            hideImg={true}
-            textClassName={"!text-lg sm:!text-3xl lg:!text-3xl xl:!text-4xl  "}
-          />
+    <div className="my-12">
+      <div className="flex gap-2 pr-2">
+        <SelectInput
+          formik={formik}
+          name={"year"}
+          label={"Year"}
+          placeholder={"Enter Your Car Year"}
+          values={() =>
+            years.map((year) => {
+              return <option key={year}>{year}</option>;
+            })
+          }
+        />
+        <SelectInput
+          formik={formik}
+          name={"make_id"}
+          label={"Make"}
+          placeholder={"Select a Make"}
+          values={() =>
+            makes.map((make) => {
+              return <option key={make.brand}>{make.brand}</option>;
+            })
+          }
+        />
 
-          <Description
-            className={
-              "text-wrap text-center !text-sm sm:!text-lg xl:!text-2xl  "
-            }
-            text="Enter your vehicle details to get started!"
-          />
-        </div>
-        <div className="w-10/12 flex flex-col overflow-y-auto form-scroll bg-scroll">
-          <div className="flex gap-2 pr-2">
-            <SelectInput
-              formik={formik}
-              name={"make_id"}
-              label={"Make"}
-              placeholder={"Select a Make"}
-              values={() =>
-                makes.map((make) => {
-                  return <option key={make.brand}>{make.brand}</option>;
-                })
-              }
-            />
-            <SelectInput
-              formik={formik}
-              name={"model"}
-              label={"Model"}
-              placeholder={"BenzS-Class"}
-              values={() =>
-                carModles[formik.values.make_id]?.map((model) => {
-                  return <option key={model}>{model}</option>;
-                })
-              }
-            />
-          </div>
-
-          <div className="flex gap-2 pr-2">
-            <SelectInput
-              formik={formik}
-              name={"year"}
-              label={"Year"}
-              placeholder={"2022"}
-              values={() =>
-                years.map((year) => {
-                  return <option key={year}>{year}</option>;
-                })
-              }
-            />
-
-            <Input
-              formik={formik}
-              name="mileage"
-              label="MIleage"
-              placeholder="100.000"
-            />
-          </div>
-
-          <div className="flex gap-2 pr-2">
-            <Input
-              formik={formik}
-              name="vin"
-              label="VIN"
-              placeholder="1GNEK13Z42R298984"
-              required={true}
-            />
-            <Input
-              formik={formik}
-              name="license_plate"
-              label="License Plate"
-              placeholder="ABC-123"
-            />
-          </div>
-          <div className="flex gap-2 pr-2">
-            <SelectInput
-              formik={formik}
-              name={"color_id"}
-              label={"Color"}
-              placeholder={"Red"}
-              values={() =>
-                carColors.map((color) => {
-                  return (
-                    <option
-                      style={{
-                        backgroundColor: color[1],
-                        color: color[0] == "Black" && "white",
-                      }}
-                      key={color[0]}
-                    >
-                      {color[0]}
-                    </option>
-                  );
-                })
-              }
-            />
-            <SelectInput
-              formik={formik}
-              name={"engine_type"}
-              label={"Engine Type"}
-              placeholder={"V6 Engine"}
-              values={() =>
-                engineTypes.map((type) => {
-                  return <option key={type}>{type}</option>;
-                })
-              }
-            />
-          </div>
-
-          <p className="my-5 text-right pr-2">+ Add New Car</p>
-
-          <Button
-            type="submit"
-            className="w-full normal-case
-                        min-h-3 sm:min-h-12 xl:min-h-20
-                        text-sm sm:text-2xl xl:text-3xl
-                    "
-          >
-            {isLoading ? "Loading..." : "Submit"}
-          </Button>
-        </div>
-        {isError && <p className="text-red-500 mt-4">{message}</p>}
       </div>
-    </form>
-  );
-}
 
-export default AddCar;
+      <div className="flex gap-2 pr-2">
+        <SelectInput
+          formik={formik}
+          name={"model"}
+          label={"Model"}
+          placeholder={"BenzS-Class"}
+          values={() =>
+            carModles[formik.values.make_id]?.map((model) => {
+              return <option key={model}>{model}</option>;
+            })
+          }
+        />
+        <SelectInput
+          formik={formik}
+          name={"engine_type"}
+          label={"Engine Type"}
+          placeholder={"V6 Engine"}
+          values={() =>
+            engineTypes.map((type) => {
+              return <option key={type}>{type}</option>;
+            })
+          }
+        />
+
+
+      </div>
+
+      <div className="flex gap-2 pr-2">
+        <Input
+          formik={formik}
+          name="vin"
+          label="VIN"
+          placeholder="1GNEK13Z42R298984"
+          required={true}
+        />
+        <Input
+          formik={formik}
+          name="license_plate"
+          label="License Plate"
+          placeholder="ABC-123"
+        />
+      </div>
+      <div className="flex gap-2 pr-2">
+        <Input
+          formik={formik}
+          name="mileage"
+          label="MIleage"
+          placeholder="100.000"
+        />
+        <SelectInput
+          formik={formik}
+          name={"color_id"}
+          label={"Color"}
+          placeholder={"Red"}
+          values={() =>
+            carColors.map((color) => {
+              return (
+                <option
+                  style={{
+                    backgroundColor: color[1],
+                    color: color[0] == "Black" && "white",
+                  }}
+                  key={color[0]}
+                >
+                  {color[0]}
+                </option>
+              );
+            })
+          }
+        />
+
+      </div>
+      <Input
+        formik={formik}
+        name="car_inspection"
+        label="Car Inspection"
+        placeholder="Ex: 02/24"
+      />
+
+    </div>
+  )
+}

@@ -25,11 +25,8 @@ function Login() {
     useLazyGetUserDataQuery();
   console.log();
   const validationSchema = yup.object().shape({
-    username: yup
-      .string()
-      .required("This is a required field")
-      .email("this email is not valie"),
-    password: yup.string().required("This is a required field"),
+    username: yup.string().required("This is a required field"),
+    password: yup.string().min(8, "password should have at least 8 characters").max(20, "password should have maximum 20 characters").required("This is a required field"),
   });
 
   const onSubmit = async (values) => {
@@ -44,7 +41,7 @@ function Login() {
 
       setState("katyAutoCareUserData", loginData, rememberMe);
 
-      dispatch(addLoginData({ ...loginData }));
+      dispatch(addLoginData({ ...loginData, isAuthenticated: true }));
       const userData = await getUserData(loginData.id).unwrap();
       dispatch(addUserData(userData));
       if (isSuccess) {
@@ -65,7 +62,7 @@ function Login() {
     <form
       onSubmit={formik.handleSubmit}
       className="
-              pt-10 sm:pt-10 md:pt-16 lg:pt-28
+             
               flex flex-col lg:flex-row
               h-auto lg:h-screen
               w-full "
@@ -87,15 +84,15 @@ function Login() {
             className={
               "text-wrap text-center !text-sm sm:!text-lg xl:!text-2xl  "
             }
-            text="Enter your email and password to access your account"
+            text="Enter your email or phone number and password to access your account"
           />
         </div>
         <div className="w-10/12 flex flex-col">
           <Input
             formik={formik}
             name={"username"}
-            label={"Email"}
-            placeholder={"Enter your Email"}
+            label={"Email Or Phone Number"}
+            placeholder={"Enter your Email or your phone number"}
           />
           <Input
             formik={formik}
@@ -105,6 +102,7 @@ function Login() {
             placeholder={"Enter your Password"}
             className={"!mb-3"}
           />
+
           <div className="flex justify-between items-center mb-10">
             <div className="flex justify-center items-center gap-1">
               <input
@@ -136,12 +134,14 @@ function Login() {
           >
             {isLoading || isLoadingUserData ? "Loading..." : "Sign in"}
           </Button>
+
           {isError && (
-            <p className="text-red-500 mt-4">
+            <div className='text-[#FF0000] text-right mr-2 text-2xl'>
               {error?.data?.detail[0]?.msg || error?.data?.detail?.message ||
                 error?.error ||
-                "An error occurred"}
-            </p>
+                "An error occurred"
+              }
+            </div>
           )}
           <p className="text-wrap text-center !text-sm sm:!text-lg xl:!text-2xl mt-2">
             Don’t have an account? &nbsp;{" "}

@@ -27,6 +27,7 @@ function App() {
                 />
               ))}
             </Routes>
+
           </MainLayout>
         </CheckAuthBoundary>
       </ErrorBoundary>

@@ -22,6 +22,7 @@ function AboutUs() {
                 <Typography variant="h5" color="blue-gray">
                     Growth
                 </Typography>
+                {/* this is done  */}
             </figcaption>
         </figure>
 

@@ -12,11 +12,11 @@ function Carousel({ children = [], arrowIsUnder }) {
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = scrollRef.current.scrollWidth / 2;
     }
-  }, []);
+  }, [children.length]);
 
   const data = [...children, ...children];
   const totalWidth = scrollRef?.current?.scrollWidth;
-  const cardWidth = Math.ceil(totalWidth / data.length);
+  const cardWidth = totalWidth ? Math.ceil(totalWidth / data.length) : 0;
   const cardsPerScreen = 3;
 
   const onScrollHandler = () => {
@@ -27,23 +27,30 @@ function Carousel({ children = [], arrowIsUnder }) {
       scrollRef.current.classList.add("scroll-smooth");
     } else if (scrollLeft >= totalWidth - cardsPerScreen * cardWidth) {
       scrollRef.current.classList.remove("scroll-smooth");
-      scrollRef.current.scrollLeft = totalWidth / 2 - cardsPerScreen * cardWidth;
+      scrollRef.current.scrollLeft =
+        totalWidth / 2 - cardsPerScreen * cardWidth;
       scrollRef.current.classList.add("scroll-smooth");
     }
   };
 
-  const onClickHandler = (e) => {
-    const direction = e.currentTarget.id === "right" ? 1 : -1;
-    scrollRef.current.scrollLeft += direction * cardWidth;
+  const onClickHandler = (direction) => {
+    if (scrollRef.current && cardWidth) {
+      scrollRef.current.scrollLeft += direction * cardWidth;
+    }
   };
 
   return (
-    <div className={`flex justify-between items-center w-full ${arrowIsUnder ? "flex-col" : ""}`}>
+    <div
+      className={`flex justify-between items-center w-full ${
+        arrowIsUnder ? "flex-col" : ""
+      }`}
+    >
       <div
-        id="left"
-        className={`cursor-pointer border border-flame hover:bg-flame rounded-full flex justify-center items-center transition duration-400 ease-in-out ${arrowIsUnder ? "hidden" : ""}
-        w-12 h-12  shrink-0 grow-0`}
-        onClick={onClickHandler}
+        className={`cursor-pointer border border-flame hover:bg-flame rounded-full flex justify-center items-center transition duration-400 ease-in-out ${
+          arrowIsUnder ? "hidden" : ""
+        }
+        w-12 h-12 shrink-0`}
+        onClick={() => onClickHandler(-1)}
         onMouseEnter={() => setLeftArrowColor("white")}
         onMouseLeave={() => setLeftArrowColor("#F80606")}
       >
@@ -53,20 +60,24 @@ function Carousel({ children = [], arrowIsUnder }) {
       <div
         ref={scrollRef}
         onScroll={onScrollHandler}
-        className="flex flex-nowrap justify-around items-center overflow-x-hidden w-[90%] scroll-smooth no-scrollbar snap-x snap-mandatory mx-3 "
+        className="flex flex-nowrap justify-around items-center overflow-x-hidden w-[90%] scroll-smooth no-scrollbar snap-x snap-mandatory mx-3"
       >
         {data.map((card, index) => (
-          <div key={index} className="snap-start flex justify-center items-center flex-shrink-0 gap-2 w-full lg:w-1/2 2xl:w-1/3">
+          <div
+            key={index}
+            className="snap-start flex justify-center items-center flex-shrink-0 gap-2 w-full lg:w-1/2 2xl:w-1/3"
+          >
             {card}
           </div>
         ))}
       </div>
 
       <div
-        id="right"
-        className={`cursor-pointer border border-flame hover:bg-flame rounded-full flex justify-center items-center transition duration-400 ease-in-out ${arrowIsUnder ? "hidden" : ""}
+        className={`cursor-pointer border border-flame hover:bg-flame rounded-full flex justify-center items-center transition duration-400 ease-in-out ${
+          arrowIsUnder ? "hidden" : ""
+        }
         w-12 h-12 shrink-0`}
-        onClick={onClickHandler}
+        onClick={() => onClickHandler(1)}
         onMouseEnter={() => setRightArrowColor("white")}
         onMouseLeave={() => setRightArrowColor("#F80606")}
       >
@@ -76,18 +87,16 @@ function Carousel({ children = [], arrowIsUnder }) {
       {arrowIsUnder && (
         <div className="flex justify-center items-center mt-5 gap-10">
           <div
-            id="left"
             className="cursor-pointer border border-flame hover:bg-flame w-12 h-12 rounded-full flex justify-center items-center transition duration-400 ease-in-out"
-            onClick={onClickHandler}
+            onClick={() => onClickHandler(-1)}
             onMouseEnter={() => setLeftArrowColor("white")}
             onMouseLeave={() => setLeftArrowColor("#F80606")}
           >
             <BackArrowIcon color={leftArrowColor} />
           </div>
           <div
-            id="right"
             className="cursor-pointer border border-flame hover:bg-flame w-12 h-12 rounded-full flex justify-center items-center transition duration-400 ease-in-out"
-            onClick={onClickHandler}
+            onClick={() => onClickHandler(1)}
             onMouseEnter={() => setRightArrowColor("white")}
             onMouseLeave={() => setRightArrowColor("#F80606")}
           >
@@ -100,7 +109,7 @@ function Carousel({ children = [], arrowIsUnder }) {
 }
 
 Carousel.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node.isRequired,
   arrowIsUnder: PropTypes.bool,
 };
 

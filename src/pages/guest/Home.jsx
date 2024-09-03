@@ -4,7 +4,7 @@ import MobileAppSection from "../../components/sections/MobileAppSection";
 import OffersSection from "../../components/sections/OffersSection";
 import RatingSection from "../../components/sections/RatingSection";
 import ScheduleAppointmentSection from "../../components/sections/ScheduleAppointmentSection";
-import ServicesSection from "../../components/sections/ServicesSection";
+import Services from "../../components/sections/Services";
 import ValueSection from "../../components/sections/ValueSection";
 
 function Home() {
@@ -14,7 +14,7 @@ function Home() {
       <ValueSection />
       <OffersSection />
       <ScheduleAppointmentSection />
-      <ServicesSection />
+      <Services />
       <MobileAppSection />
       <RatingSection />
       <AboutUsSection />
